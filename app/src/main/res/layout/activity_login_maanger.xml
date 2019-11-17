@@ -29,7 +29,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/Connect"
+        android:id="@+id/ConnectId"
         android:layout_width="203dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
