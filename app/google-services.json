@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "503565124557",
+    "firebase_url": "https://married-at-first-sight.firebaseio.com",
+    "project_id": "married-at-first-sight",
+    "storage_bucket": "married-at-first-sight.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503565124557:android:96d489dd9f729d64707a84",
+        "android_client_info": {
+          "package_name": "com.example.married_at_first_sight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503565124557-sscr7cfamhdp7jts899l38k3m5b7te6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDppchmRJYEqVmWZ_MlIKgO92sJ0QE7yes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503565124557-sscr7cfamhdp7jts899l38k3m5b7te6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
