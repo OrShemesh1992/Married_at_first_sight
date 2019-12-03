@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class questions extends AppCompatActivity implements View.OnClickListener{
     Button next;
@@ -14,9 +13,7 @@ public class questions extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
-
-
-
+        //button next
         next = (Button)findViewById(R.id.Next_Button);
         next.setOnClickListener(this);
     }
@@ -24,6 +21,7 @@ public class questions extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if(v == next){
+            //movw data to profile activity
             Intent getfrommain = getIntent();
 
             String name =getfrommain.getStringExtra("name");

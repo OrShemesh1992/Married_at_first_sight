@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
+                                //move data to questions
                                 Toast.makeText(MainActivity.this, "Welcome "+ name, Toast.LENGTH_SHORT).show();
                                 Intent intentquestions = new Intent(MainActivity.this, questions.class);
                                 intentquestions.putExtra("name",name);
