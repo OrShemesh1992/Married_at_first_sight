@@ -6,63 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
+
     <TextView
         android:id="@+id/DataFacebook_name"
-        android:layout_width="188dp"
-        android:layout_height="52dp"
+        android:layout_width="187dp"
+        android:layout_height="41dp"
+        android:background="#A30F0F"
         android:text="TextView"
+        android:textSize="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
+        app:layout_constraintVertical_bias="0.801" />
 
     <TextView
         android:id="@+id/DataFacebook_email"
-        android:layout_width="172dp"
-        android:layout_height="38dp"
+        android:layout_width="187dp"
+        android:layout_height="41dp"
+        android:background="#A30F0F"
         android:text="TextView"
+        android:textSize="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
-
-    <TextView
-        android:id="@+id/DataFacebook_gender"
-        android:layout_width="176dp"
-        android:layout_height="17dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.954" />
 
     <TextView
         android:id="@+id/DataFacebook_birthday"
-        android:layout_width="162dp"
-        android:layout_height="65dp"
+        android:layout_width="187dp"
+        android:layout_height="41dp"
+        android:textSize="26dp"
+        android:background="#A30F0F"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintVertical_bias="0.877" />
 
     <ImageView
         android:id="@+id/imagefacebook"
-        android:layout_width="164dp"
-        android:layout_height="98dp"
+        android:layout_width="188dp"
+        android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154"
+        app:layout_constraintVertical_bias="0.418"
         app:srcCompat="@android:drawable/alert_dark_frame" />
 </androidx.constraintlayout.widget.ConstraintLayout>

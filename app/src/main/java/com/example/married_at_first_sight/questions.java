@@ -38,7 +38,6 @@ public class questions extends AppCompatActivity implements View.OnClickListener
 
             startActivity(intentProfile);
 
-
             }
         }
 }

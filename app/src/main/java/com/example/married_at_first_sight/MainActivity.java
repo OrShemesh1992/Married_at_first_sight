@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(MainActivity.this, "Connect", Toast.LENGTH_SHORT).show();
-                                Intent launchactivity = new Intent(MainActivity.this, questions.class);
+                                Intent launchactivity = new Intent(MainActivity.this, answer.class);
                                 startActivity(launchactivity);
 
                             } else {
