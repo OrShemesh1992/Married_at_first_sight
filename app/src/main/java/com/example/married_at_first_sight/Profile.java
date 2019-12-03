@@ -32,6 +32,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         Intent intent =getIntent();
+
         name_ =(TextView)findViewById(R.id.DataFacebook_name);
         email_ =(TextView)findViewById(R.id.DataFacebook_email);
         birthday_ =(TextView)findViewById(R.id.DataFacebook_birthday);
@@ -49,22 +50,22 @@ public class Profile extends AppCompatActivity {
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
-        Bitmap mBitmap = null;
-        try {
-            mBitmap = getFacebookProfilePicture(id);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        image.setImageBitmap(mBitmap);
+//        Bitmap mBitmap = null;
+//        try {
+//            mBitmap = getFacebookProfilePicture(id);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        image.setImageBitmap(mBitmap);
         return super.onCreateView(name, context, attrs);
-    }
+   }
 
-    public static Bitmap getFacebookProfilePicture(String userID) throws IOException {
-        URL imageURL = new URL("https://graph.facebook.com/" + userID + "/picture?type=large");
-        Bitmap bitmap = BitmapFactory.decodeStream(imageURL.openConnection().getInputStream());
-
-        return bitmap;
-    }
+//    public static Bitmap getFacebookProfilePicture(String userID) throws IOException {
+//        URL imageURL = new URL("https://graph.facebook.com/" + userID + "/picture?type=large");
+//        Bitmap bitmap = BitmapFactory.decodeStream(imageURL.openConnection().getInputStream());
+//
+//        return bitmap;
+//    }
 }
 
 
