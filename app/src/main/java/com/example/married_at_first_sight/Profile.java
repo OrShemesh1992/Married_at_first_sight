@@ -46,6 +46,7 @@ public class Profile extends AppCompatActivity {
         name_.setText(name);
         email_.setText(email);
         birthday_.setText(birthday);
+
     }
 
     @Override

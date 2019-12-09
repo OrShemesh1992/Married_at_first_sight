@@ -1,25 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/heart"
     tools:context=".questions">
 
+    <Button
+        android:id="@+id/ans1"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="112dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:onClick="onClick"
+        android:text="25 - 30"
+        android:textColor="#3C3E3F"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709" />
 
     <Button
-        android:id="@+id/Next_Button"
+        android:id="@+id/ans2"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="111dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:onClick="onClick"
+        android:text="30 - 35"
+        android:textColor="@color/browser_actions_text_color"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.798" />
+
+    <Button
+        android:id="@+id/ans3"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="113dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:onClick="onClick"
+        android:text="35 - 40"
+        android:textColor="@color/browser_actions_text_color"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.884" />
+
+    <Button
+        android:id="@+id/Finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#A30F0F"
-        android:text="Next"
+        android:background="#ADF12E2E"
+        android:text="Finish"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold|italic"
-        android:textSize="18dp"/>
+        app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/questions"
+        android:layout_width="194dp"
+        android:layout_height="96dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="Age"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="60sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

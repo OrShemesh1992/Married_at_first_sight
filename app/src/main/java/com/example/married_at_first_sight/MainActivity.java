@@ -59,20 +59,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+
+
+
+
+
+
+
         //create fire base
         firebaseAuth = firebaseAuth.getInstance();
         //creat Listener Login to Dialog
-        login = (Button)findViewById(R.id.Manager_Login);
+      login = (Button)findViewById(R.id.Manager_Login);
         login.setOnClickListener(this);
         //For facebook connect
         callbackManager = CallbackManager.Factory.create();
         facebook = (LoginButton) findViewById(R.id.login_button);
         facebook.setOnClickListener(this);
         //take data
-        FacebookSdk.sdkInitialize(getApplicationContext());
+       FacebookSdk.sdkInitialize(getApplicationContext());
         facebook.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday"));
     }
 
+    public void stam(View view){
+        Intent intent = new Intent(getApplicationContext(),questions.class);
+        startActivity(intent);
+    }
 //function Listener
     @Override
     public void onClick(View v) {
