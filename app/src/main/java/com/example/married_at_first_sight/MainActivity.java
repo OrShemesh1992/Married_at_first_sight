@@ -2,24 +2,16 @@ package com.example.married_at_first_sight;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
-
 import android.os.Bundle;
-
 import android.text.TextUtils;
-
-import android.util.Log;
 import android.view.View;
-
 import java.util.Arrays;
-
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.EditText;
-
 import android.widget.Toast;
-
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -32,12 +24,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
-
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -49,52 +39,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText Pass;
     Dialog d;
     FirebaseAuth firebaseAuth;
+    DatabaseReference mDatabase;
     CallbackManager callbackManager;
-//take from facrbook
+    //take from facrbook
     String email;
     String birthday;
     String name;
     String id;
+    //check facebook
+    AccessToken token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-
-
-
-
-
-
-
-        //create fire base
-        firebaseAuth = firebaseAuth.getInstance();
-        //creat Listener Login to Dialog
-      login = (Button)findViewById(R.id.Manager_Login);
+        login = (Button)findViewById(R.id.Manager_Login);
         login.setOnClickListener(this);
         //For facebook connect
         callbackManager = CallbackManager.Factory.create();
         facebook = (LoginButton) findViewById(R.id.login_button);
         facebook.setOnClickListener(this);
         //take data
-       FacebookSdk.sdkInitialize(getApplicationContext());
+        FacebookSdk.sdkInitialize(getApplicationContext());
         facebook.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday"));
+        //set data
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
-    public void stam(View view){
-        Intent intent = new Intent(getApplicationContext(),questions.class);
-        startActivity(intent);
+    public void Getstarted(View view){
+        token = AccessToken.getCurrentAccessToken();
+        Intent intent = new Intent(getApplicationContext(), questions.class);
+        intent.putExtra("id",id);
+        //Means user is not logged in
+        if (token == null) {
+            Toast.makeText(MainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();
+        }else {
+            startActivity(intent);
+        }
     }
+
 //function Listener
     @Override
     public void onClick(View v) {
         if (v == login){
             creatDialog();
         }else if(v == ConnectButton){
-
             connect();
         }else if(v == facebook){
             connectfacebook();
@@ -118,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String username = USer.getText().toString().trim();
         String Password = Pass.getText().toString().trim();
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(Password)) {
-            Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter email or password", Toast.LENGTH_SHORT).show();
             return;
         } else {
             firebaseAuth.signInWithEmailAndPassword(username, Password)
@@ -138,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //function connectfacebook
+    //function connect facebook
     public void connectfacebook(){
         facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -148,9 +137,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         new GraphRequest.GraphJSONObjectCallback() {
                             @Override
                             public void onCompleted(JSONObject object, GraphResponse response) {
-
-                                Log.v("LoginActivity", response.toString());
-
                              // Application code
                                 try {
                                     email = object.getString("email").toString();
@@ -160,14 +146,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-                                //move data to questions
-                                Toast.makeText(MainActivity.this, "Welcome "+ name, Toast.LENGTH_SHORT).show();
-                                Intent intentquestions = new Intent(MainActivity.this, questions.class);
-                                intentquestions.putExtra("name",name);
-                                intentquestions.putExtra("email",email);
-                                intentquestions.putExtra("birthday",birthday);
-                                intentquestions.putExtra("id",id);
-                                startActivity(intentquestions);
+
+                                Toast.makeText(MainActivity.this,  name +" Connect", Toast.LENGTH_SHORT).show();
+                                FaceData p = new FaceData(id,name,email,birthday);
+                                String pushID= mDatabase.push().getKey();
+                                mDatabase.child("faceData").child(pushID).setValue(p);
                             }
                         });
                 Bundle parameters = new Bundle();
@@ -178,11 +161,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onCancel() {
             }
-
             @Override
             public void onError(FacebookException error) {
             }
-
         });
     }
 

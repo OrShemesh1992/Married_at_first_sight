@@ -5,18 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Constants;
 
 import java.util.ArrayList;
 
 public class questions extends AppCompatActivity implements View.OnClickListener
 {
-//https://firebase.google.com/docs/database/android/read-and-write
+
     int i = 0; //index.
     Button next;
     Button nextAns1;
@@ -26,8 +28,7 @@ public class questions extends AppCompatActivity implements View.OnClickListener
     ArrayList<String> answer2 = new ArrayList<>(); //List of answers.
     ArrayList<String> answer3 = new ArrayList<>(); //List of answers.
     ArrayList<String> questions = new ArrayList<>(); //List of questions.
-//data refrence
-DatabaseReference mDatabase;
+
     /*
     Needs to be read from fireBase!
     */
@@ -66,10 +67,7 @@ DatabaseReference mDatabase;
         nextAns3 = (Button)findViewById(R.id.ans3);
         nextAns3.setOnClickListener(this);
 
-        //fire base
-        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mDatabase.child("Questions").child("1").child("name").setValue("nahama");
 
     }
 
@@ -80,19 +78,10 @@ DatabaseReference mDatabase;
         if(v == next && i > 3)
         {
             Intent getFromMain = getIntent();
-
-            String name = getFromMain.getStringExtra("name");
-            String email = getFromMain.getStringExtra("email");
-            String birthday = getFromMain.getStringExtra("birthday");
+            //intent to Profile
             String id = getFromMain.getStringExtra("id");
-
             Intent intentProfile = new Intent(this, Profile.class);
-
-            intentProfile.putExtra("name", name);
-            intentProfile.putExtra("email", email);
-            intentProfile.putExtra("birthday", birthday);
             intentProfile.putExtra("id", id);
-
             startActivity(intentProfile);
         }
 

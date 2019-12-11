@@ -18,7 +18,6 @@
         android:textColor="#F5EAEA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,17 +35,19 @@
         app:layout_constraintVertical_bias="0.685" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="70dp"
-        android:layout_height="49dp"
-        android:onClick="stam"
-        android:text="Quiz"
+        android:id="@+id/start"
+        android:layout_width="176dp"
+        android:layout_height="27dp"
+        android:background="#E4D007"
+        android:onClick="Getstarted"
+        android:text="Get Started"
+        android:textColor="#F5EAEA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.971" />
+        app:layout_constraintVertical_bias="0.637" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
