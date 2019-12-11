@@ -3,9 +3,17 @@ package com.example.married_at_first_sight;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import android.widget.Button;
 import android.content.Intent;
