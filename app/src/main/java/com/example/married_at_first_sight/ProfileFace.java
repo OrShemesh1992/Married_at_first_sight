@@ -20,7 +20,6 @@ public class ProfileFace extends AppCompatActivity {
     TextView name_;
     TextView birthday_;
     ProfilePictureView profilePictureView;
-  //  ImageView image;
     DatabaseReference mDatabase;
     final Profile profile = Profile.getCurrentProfile();
     @Override

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.facebook.Profile;
 import java.util.ArrayList;
 
 public class questions extends AppCompatActivity implements View.OnClickListener
