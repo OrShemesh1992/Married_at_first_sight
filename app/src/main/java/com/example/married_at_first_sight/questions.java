@@ -1,19 +1,13 @@
 package com.example.married_at_first_sight;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.Constants;
-
+import com.facebook.Profile;
 import java.util.ArrayList;
 
 public class questions extends AppCompatActivity implements View.OnClickListener
@@ -28,7 +22,6 @@ public class questions extends AppCompatActivity implements View.OnClickListener
     ArrayList<String> answer2 = new ArrayList<>(); //List of answers.
     ArrayList<String> answer3 = new ArrayList<>(); //List of answers.
     ArrayList<String> questions = new ArrayList<>(); //List of questions.
-
     /*
     Needs to be read from fireBase!
     */
@@ -67,8 +60,6 @@ public class questions extends AppCompatActivity implements View.OnClickListener
         nextAns3 = (Button)findViewById(R.id.ans3);
         nextAns3.setOnClickListener(this);
 
-
-
     }
 
     @Override
@@ -79,9 +70,7 @@ public class questions extends AppCompatActivity implements View.OnClickListener
         {
             Intent getFromMain = getIntent();
             //intent to Profile
-            String id = getFromMain.getStringExtra("id");
-            Intent intentProfile = new Intent(this, Profile.class);
-            intentProfile.putExtra("id", id);
+            Intent intentProfile = new Intent(this, ProfileFace.class);
             startActivity(intentProfile);
         }
 

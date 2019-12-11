@@ -68,8 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void Getstarted(View view){
         token = AccessToken.getCurrentAccessToken();
-        Intent intent = new Intent(getApplicationContext(), questions.class);
-        intent.putExtra("id",id);
+        Intent intent = new Intent(getApplicationContext(), ProfileFace.class);
         //Means user is not logged in
         if (token == null) {
             Toast.makeText(MainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();
@@ -149,8 +148,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 Toast.makeText(MainActivity.this,  name +" Connect", Toast.LENGTH_SHORT).show();
                                 FaceData p = new FaceData(id,name,email,birthday);
-                                String pushID= mDatabase.push().getKey();
-                                mDatabase.child("faceData").child(pushID).setValue(p);
+                                mDatabase.child("faceData").child(id).setValue(p);
+                                Intent intent = new Intent(getApplicationContext(), questions.class);
+                                startActivity(intent);
                             }
                         });
                 Bundle parameters = new Bundle();
