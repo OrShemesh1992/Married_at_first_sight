@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void Getstarted(View view){
         token = AccessToken.getCurrentAccessToken();
-        Intent intent = new Intent(getApplicationContext(), ProfileFace.class);
+        Intent intent = new Intent(getApplicationContext(), date.class);
         //Means user is not logged in
         if (token == null) {
             Toast.makeText(MainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();

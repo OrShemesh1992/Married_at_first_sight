@@ -69,7 +69,7 @@ public class questions extends AppCompatActivity implements View.OnClickListener
         {
             Intent getFromMain = getIntent();
             //intent to Profile
-            Intent intentProfile = new Intent(this, ProfileFace.class);
+            Intent intentProfile = new Intent(this, date.class);
             startActivity(intentProfile);
         }
 

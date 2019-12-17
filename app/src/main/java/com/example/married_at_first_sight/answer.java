@@ -10,7 +10,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class answer extends AppCompatActivity {
-
+// managger Editor quiz
     EditText questionsend;
     EditText answer1;
     EditText answer2;
@@ -36,7 +36,7 @@ public class answer extends AppCompatActivity {
         answer4 = (EditText) findViewById(R.id.answer4);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        question_4answer sendToFire=new question_4answer(
+        question_4answer sendToFire=new question_4answer(questionsend.getText().toString(),
                 answer1.getText().toString().trim(), answer2.getText().toString().trim(),
                 answer3.getText().toString().trim(), answer4.getText().toString().trim());
 
