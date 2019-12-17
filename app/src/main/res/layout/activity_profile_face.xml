@@ -11,7 +11,7 @@
         android:layout_width="317dp"
         android:layout_height="51dp"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:text="name"
+        android:text="Age"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="30sp"
         android:typeface="monospace"
@@ -38,7 +38,7 @@
         app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.829" />
+        app:layout_constraintVertical_bias="0.73" />
 
     <com.facebook.login.widget.ProfilePictureView
         android:id="@+id/imagefacebook"
@@ -51,5 +51,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055"
         app:srcCompat="@android:drawable/alert_dark_frame" />
+
+    <Button
+        android:id="@+id/EditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:onClick="Edit_Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

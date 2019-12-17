@@ -2,8 +2,10 @@ package com.example.married_at_first_sight;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import com.facebook.Profile;
 import com.facebook.login.widget.ProfilePictureView;
@@ -15,14 +17,17 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFace extends AppCompatActivity {
     TextView name_;
+    TextView birthday_;
     ProfilePictureView profilePictureView;
     DatabaseReference mDatabase;
+    Intent intent;
     final Profile profile = Profile.getCurrentProfile();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_face);
         name_ = (TextView) findViewById(R.id.DataFacebook_name);
+        birthday_=(TextView) findViewById(R.id.DataFacebook_age);
         profilePictureView = (ProfilePictureView) findViewById(R.id.imagefacebook);
         profilePictureView.setProfileId(profile.getId());
         fb_details();
@@ -42,11 +47,17 @@ public class ProfileFace extends AppCompatActivity {
                 {
                     FaceData face = dataSnapshot.child("faceData").child(s).getValue(FaceData.class);
                     name_.setText(face.name);
+                    birthday_.setText(face.birthday);
                 }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    public void Edit_Profile(View view) {
+        intent = new Intent(getApplicationContext(), EditProfile.class);
+        startActivity(intent);
     }
 }
