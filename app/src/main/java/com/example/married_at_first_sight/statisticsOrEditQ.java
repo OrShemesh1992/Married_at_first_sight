@@ -20,7 +20,7 @@ public class statisticsOrEditQ extends AppCompatActivity {
     }
 
     public void Edit_Q(View view) {
-        intent = new Intent(getApplicationContext(), answer.class);
+        intent = new Intent(getApplicationContext(), managerQuizEditor.class);
         startActivity(intent);
     }
 }
