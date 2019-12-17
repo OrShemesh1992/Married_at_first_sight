@@ -15,7 +15,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFace extends AppCompatActivity {
     TextView name_;
-    TextView birthday_;
     ProfilePictureView profilePictureView;
     DatabaseReference mDatabase;
     final Profile profile = Profile.getCurrentProfile();
@@ -24,7 +23,6 @@ public class ProfileFace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_face);
         name_ = (TextView) findViewById(R.id.DataFacebook_name);
-        birthday_ = (TextView) findViewById(R.id.DataFacebook_birthday);
         profilePictureView = (ProfilePictureView) findViewById(R.id.imagefacebook);
         profilePictureView.setProfileId(profile.getId());
         fb_details();
@@ -44,7 +42,6 @@ public class ProfileFace extends AppCompatActivity {
                 {
                     FaceData face = dataSnapshot.child("faceData").child(s).getValue(FaceData.class);
                     name_.setText(face.name);
-                    birthday_.setText(face.birthday);
                 }
             }
             @Override

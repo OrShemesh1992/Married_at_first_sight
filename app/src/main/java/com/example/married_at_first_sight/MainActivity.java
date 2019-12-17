@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(MainActivity.this, "Connect", Toast.LENGTH_SHORT).show();
-                                Intent launchactivity = new Intent(MainActivity.this, answer.class);
+                                Intent launchactivity = new Intent(MainActivity.this, statisticsOrEditQ.class);
                                 startActivity(launchactivity);
 
                             } else {
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 }
 
                                 Toast.makeText(MainActivity.this,  name +" Connect", Toast.LENGTH_SHORT).show();
-                                FaceData p = new FaceData(id,name,email,"Check");
+                                FaceData p = new FaceData(id,name,email," ");
                                 mDatabase.child("faceData").child(id).setValue(p);
                                 Intent intent = new Intent(getApplicationContext(), questions.class);
                                 startActivity(intent);
