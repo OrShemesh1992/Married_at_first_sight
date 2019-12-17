@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.facebook.Profile;
 import com.facebook.login.widget.ProfilePictureView;
 import com.google.firebase.database.DataSnapshot;

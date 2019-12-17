@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         facebook.setOnClickListener(this);
         //take data
         FacebookSdk.sdkInitialize(getApplicationContext());
-        facebook.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday"));
+        facebook.setReadPermissions(Arrays.asList("public_profile", "email"));
         //set data
         mDatabase = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = firebaseAuth.getInstance();
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-//function Listener
+    //function Listener
     @Override
     public void onClick(View v) {
         if (v == login){
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(launchactivity);
 
                             } else {
-                                  Toast.makeText(MainActivity.this,"Try again",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this,"Try again",Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -138,10 +138,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         new GraphRequest.GraphJSONObjectCallback() {
                             @Override
                             public void onCompleted(JSONObject object, GraphResponse response) {
-                             // Application code
+                                // Application code
                                 try {
                                     email = object.getString("email").toString();
-                                    birthday = object.getString("birthday").toString(); // 01/31/1980 format
+                              //      birthday = object.getString("birthday").toString(); // 01/31/1980 format
                                     name = object.getString("name").toString();
                                     id=object.getString("id").toString();
                                 } catch (JSONException e) {
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 }
 
                                 Toast.makeText(MainActivity.this,  name +" Connect", Toast.LENGTH_SHORT).show();
-                                FaceData p = new FaceData(id,name,email,birthday);
+                                FaceData p = new FaceData(id,name,email,"Check");
                                 mDatabase.child("faceData").child(id).setValue(p);
                                 Intent intent = new Intent(getApplicationContext(), questions.class);
                                 startActivity(intent);
