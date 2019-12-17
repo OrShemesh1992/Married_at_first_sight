@@ -19,7 +19,7 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
     }
-
+//Send Age to firebase
     public void SendEdit(View view) {
         EditAge = (EditText) findViewById(R.id.age);
         mDatabase = FirebaseDatabase.getInstance().getReference();
