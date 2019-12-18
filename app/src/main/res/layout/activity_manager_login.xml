@@ -13,7 +13,8 @@
         android:layout_gravity="center"
         android:autoText="false"
         android:ems="10"
-        android:hint="Email ID"
+        android:fontFamily="casual"
+        android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -22,15 +23,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ems="10"
+        android:fontFamily="casual"
         android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/connect"
-        android:layout_width="203dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
         android:layout_gravity="center"
-        android:background="#A30F0F"
-        android:text="Connect" />
-
+        android:backgroundTint="#E1F30707"
+        android:fontFamily="casual"
+        android:text="Connect"
+        android:textAllCaps="false"
+        android:textSize="14sp" />
 </LinearLayout>

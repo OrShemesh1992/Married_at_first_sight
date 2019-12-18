@@ -139,6 +139,8 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
         {
             Toast.makeText(this, "Email or password incorrect", Toast.LENGTH_SHORT).show();
+            emailET.setText("");
+            passwordET.setText("");
             return;
         }
         else
