@@ -8,14 +8,28 @@
     android:visibility="visible"
     tools:context=".mainPage">
 
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/facebookLogin"
+        android:layout_width="125dp"
+        android:layout_height="28dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#28282D31"
+        android:fontFamily="cursive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.748" />
+
     <Button
-        android:id="@+id/start"
+        android:id="@+id/getMatch"
         android:layout_width="211dp"
         android:layout_height="47dp"
         android:background="@drawable/shape"
         android:backgroundTint="#28282D31"
         android:fontFamily="casual"
-        android:onClick="Getstarted"
+        android:onClick="getMatches"
         android:text="It's a match"
         android:textAllCaps="true"
         android:textColor="#F1E9E9"
@@ -44,19 +58,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/facebookLogin"
-        android:layout_width="125dp"
-        android:layout_height="28dp"
-        android:background="@drawable/shape"
-        android:backgroundTint="#28282D31"
-        android:fontFamily="cursive"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

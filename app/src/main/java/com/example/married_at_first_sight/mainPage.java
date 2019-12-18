@@ -34,148 +34,192 @@ This class is the main application page.
  */
 public class mainPage extends AppCompatActivity implements View.OnClickListener
 {
-    Button login;
-    LoginButton facebook;
-    Button ConnectButton;
-    EditText USer;
-    EditText Pass;
-    Dialog d;
+
+    LoginButton facebookLoginButton; //Facebook login button.
+    Button managerLoginButton; //Manager login button.
+    Button managerConnectionButton; //Manager connection button.
+    EditText emailET; //Email edit text for manager connection.
+    EditText passwordET; //Password edit text for manager connection.
+
+    Dialog dialog;
     FirebaseAuth firebaseAuth;
-    DatabaseReference mDatabase;
+    DatabaseReference database;
     CallbackManager callbackManager;
-    //take from facrbook
-    String email;
-    String birthday;
-    String name;
+
+    //Facebook token data:
     String id;
-    //check facebook
-    AccessToken token;
+    String name;
+    String email;
+
+    AccessToken token; //Check token facebook data.
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        login = (Button)findViewById(R.id.managerLogin);
-        login.setOnClickListener(this);
-        //For facebook connect
+        managerLoginButton = (Button)findViewById(R.id.managerLogin);
+        managerLoginButton.setOnClickListener(this);
+
+        //Facebook connection.
         callbackManager = CallbackManager.Factory.create();
-        facebook = (LoginButton) findViewById(R.id.facebookLogin);
-        facebook.setOnClickListener(this);
-        //take data
+        facebookLoginButton = (LoginButton)findViewById(R.id.facebookLogin);
+        facebookLoginButton.setOnClickListener(this);
+
         FacebookSdk.sdkInitialize(getApplicationContext());
-        facebook.setReadPermissions(Arrays.asList("public_profile", "email"));
-        //set data
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        facebookLoginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
+
+        database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = firebaseAuth.getInstance();
     }
 
-    public void Getstarted(View view){
+    /*
+    This function is for "IT'S A MATCH" button.
+     */
+    public void getMatches(View view)
+    {
         token = AccessToken.getCurrentAccessToken();
         Intent intent = new Intent(getApplicationContext(), matchPage.class);
-        //Means user is not logged in
-        if (token == null) {
+        //If user is not connected to facebook.
+        if (token == null)
+        {
             Toast.makeText(mainPage.this, "Not Connected", Toast.LENGTH_SHORT).show();
-        }else {
+        }
+        else
+        {
             startActivity(intent);
         }
     }
 
-    //function Listener
+    /*
+    This function is a Listener function.
+     */
     @Override
-    public void onClick(View v) {
-        if (v == login){
-            creatDialog();
-        }else if(v == ConnectButton){
-            connect();
-        }else if(v == facebook){
-            connectfacebook();
+    public void onClick(View v)
+    {
+        if(v == facebookLoginButton)
+        {
+            facebookConnection();
         }
-
+        else if (v == managerLoginButton)
+        {
+            managerLoginDialog();
+        }
+        else if(v == managerConnectionButton)
+        {
+            managerConnection();
+        }
     }
 
-    //creatDialog to Manager
-    public void creatDialog(){
-        d = new Dialog(this);
-        d.setContentView(R.layout.activity_manager_login);
-        d.setTitle("Login");
-        ConnectButton = (Button)d.findViewById(R.id.connect);
-        USer = (EditText) d.findViewById(R.id.user);
-        Pass = (EditText) d.findViewById(R.id.password);
-        ConnectButton.setOnClickListener(this);
-        d.show();
+    /*
+    This function creates a dialog for manager connection.
+     */
+    public void managerLoginDialog()
+    {
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_manager_login);
+        dialog.setTitle("Manager Login");
+
+        managerConnectionButton = (Button)dialog.findViewById(R.id.connect);
+        emailET = (EditText)dialog.findViewById(R.id.user);
+        passwordET = (EditText)dialog.findViewById(R.id.password);
+        managerConnectionButton.setOnClickListener(this);
+        dialog.show();
     }
 
-    //function connect to Manager
-    public void connect() {
-        String username = USer.getText().toString().trim();
-        String Password = Pass.getText().toString().trim();
-        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(Password)) {
-            Toast.makeText(this, "Please enter email or password", Toast.LENGTH_SHORT).show();
+    /*
+    This function is for the manager connection.
+     */
+    public void managerConnection()
+    {
+        String email = emailET.getText().toString().trim();
+        String password = passwordET.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
+        {
+            Toast.makeText(this, "Email or password incorrect", Toast.LENGTH_SHORT).show();
             return;
-        } else {
-            firebaseAuth.signInWithEmailAndPassword(username, Password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        }
+        else
+        {
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
+                    {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
+                        public void onComplete(@NonNull Task<AuthResult> task)
+                        {
+                            if (task.isSuccessful())
+                            {
                                 Toast.makeText(mainPage.this, "Connect", Toast.LENGTH_SHORT).show();
-                                Intent launchactivity = new Intent(mainPage.this, managerOptionsPage.class);
-                                startActivity(launchactivity);
-
-                            } else {
-                                Toast.makeText(mainPage.this,"Try again",Toast.LENGTH_SHORT).show();
+                                Intent launchActivity = new Intent(mainPage.this, managerOptionsPage.class);
+                                startActivity(launchActivity);
+                            }
+                            else
+                            {
+                                Toast.makeText(mainPage.this, "Try again",Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
         }
     }
 
-    //function connect facebook
-    public void connectfacebook(){
-        facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+    /*
+    This function is for facebook connection.
+     */
+    public void facebookConnection()
+    {
+        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
+        {
             @Override
-            public void onSuccess(LoginResult loginResult) {
-                GraphRequest request = GraphRequest.newMeRequest(
-                        loginResult.getAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
+            public void onSuccess(LoginResult loginResult)
+            {
+                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback()
+                        {
                             @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-                                // Application code
-                                try {
-                                    email = object.getString("email").toString();
-                              //      birthday = object.getString("birthday").toString(); // 01/31/1980 format
-                                    name = object.getString("name").toString();
-                                    id=object.getString("id").toString();
-                                } catch (JSONException e) {
+                            public void onCompleted(JSONObject object, GraphResponse response)
+                            {
+                                try
+                                {
+                                    id = object.getString("id");
+                                    name = object.getString("name");
+                                    email = object.getString("email");
+
+                                }
+                                catch (JSONException e)
+                                {
                                     e.printStackTrace();
                                 }
 
-                                Toast.makeText(mainPage.this,  name +" Connect", Toast.LENGTH_SHORT).show();
-                                facebookData p = new facebookData(id,name,email," ");
-                                mDatabase.child("faceData").child(id).setValue(p);
+                                Toast.makeText(mainPage.this, name + "Connect", Toast.LENGTH_SHORT).show();
+                                facebookData p = new facebookData(id ,name, email, " ");
+                                database.child("faceData").child(id).setValue(p);
                                 Intent intent = new Intent(getApplicationContext(), questionnairePage.class);
                                 startActivity(intent);
                             }
                         });
+
                 Bundle parameters = new Bundle();
                 parameters.putString("fields", "id,name,email,gender,birthday,picture.type(large)");
                 request.setParameters(parameters);
                 request.executeAsync();
             }
             @Override
-            public void onCancel() {
+            public void onCancel()
+            {
             }
             @Override
-            public void onError(FacebookException error) {
+            public void onError(FacebookException error)
+            {
             }
         });
     }
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
-
-
 }
