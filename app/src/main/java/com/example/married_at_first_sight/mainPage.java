@@ -91,6 +91,7 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         }else if(v == facebook){
             connectfacebook();
         }
+
     }
 
     //creatDialog to Manager
@@ -175,4 +176,6 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
 }
