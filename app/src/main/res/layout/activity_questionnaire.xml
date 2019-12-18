@@ -76,23 +76,6 @@
         app:layout_constraintVertical_bias="0.884" />
 
     <Button
-        android:id="@+id/ans4"
-        style="@style/Widget.AppCompat.Button.Small"
-        android:layout_width="113dp"
-        android:layout_height="47dp"
-        android:fontFamily="@font/annie_use_your_telescope"
-        android:onClick="onClick"
-        android:text="35 - 40"
-        android:textColor="@color/browser_actions_text_color"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
-
-    <Button
         android:id="@+id/finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

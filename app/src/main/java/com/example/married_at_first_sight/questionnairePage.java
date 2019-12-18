@@ -47,8 +47,7 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
                             (child.getKey(),
                             child.child("1").getValue(String.class),
                             child.child("2").getValue(String.class),
-                            child.child("3").getValue(String.class),
-                            child.child("4").getValue(String.class));
+                            child.child("3").getValue(String.class));
                     questArr.add(quest);
                 }
             }
@@ -72,8 +71,6 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
         nextAns2Button.setOnClickListener(this);
         nextAns3Button = (Button)findViewById(R.id.ans3);
         nextAns3Button.setOnClickListener(this);
-        nextAns4Button = (Button)findViewById(R.id.ans4);
-        nextAns4Button.setOnClickListener(this);
         readQuestionnaireFromFirebase(); //Reads the questionnaire from firebase.
     }
 
@@ -83,7 +80,6 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
         //Moves to profile activity.
         if(v == nextButton && i > questArr.size())
         {
-            Intent getFromMain = getIntent();
             //intent to Profile
             Intent intentProfile = new Intent(this, matchPage.class);
             startActivity(intentProfile);
@@ -99,7 +95,6 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
                 nextAns1Button.setText(questArr.get(i).getAns1());
                 nextAns2Button.setText(questArr.get(i).getAns2());
                 nextAns3Button.setText(questArr.get(i).getAns3());
-                nextAns4Button.setText(questArr.get(i).getAns4());
             }
             i++;
             //If the end of questions.
