@@ -8,44 +8,55 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.ArrayList;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /*
 This class is for the questionnaire page.
  */
 public class questionnairePage extends AppCompatActivity implements View.OnClickListener
 {
-    int i = 0; //index.
+    int i = 0; //Number of question in the questionnaire list.
     Button nextButton;
     Button nextAns1Button;
     Button nextAns2Button;
     Button nextAns3Button;
-    ArrayList<String> answer1 = new ArrayList<>(); //List of answers.
-    ArrayList<String> answer2 = new ArrayList<>(); //List of answers.
-    ArrayList<String> answer3 = new ArrayList<>(); //List of answers.
-    ArrayList<String> questions = new ArrayList<>(); //List of questions.
+    Button nextAns4Button;
+    ArrayList<questionnaire> questArr = new ArrayList<>();//List of questions and options of answers.
+    DatabaseReference database; //Database for facebook data.
 
     /*
-    Needs to be read from fireBase!
-    */
-    public boolean readFromFirebase()
+    This function reads the Questionnaire from fire base,
+    and make a list of questionnaire.
+     */
+    public void readQuestionnaireFromFirebase()
     {
-        questions.add("Hobbies");
-        questions.add("Religion");
-        questions.add("Area");
-
-        answer1.add("Dancing");
-        answer2.add("Singing");
-        answer3.add("Surfing");
-
-        answer1.add("Religious");
-        answer2.add("Secular");
-        answer3.add("Traditional");
-
-        answer1.add("Center");
-        answer2.add("North");
-        answer3.add("South");
-
-        return true;
+        //DatabaseReference reference;
+        database = FirebaseDatabase.getInstance().getReference();
+        database.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                for (DataSnapshot child : dataSnapshot.getChildren())
+                {
+                    questionnaire quest = new questionnaire(
+                            dataSnapshot.getKey(),
+                            child.child("1").getKey(),
+                            child.child("2").getKey(),
+                            child.child("3").getKey(),
+                            child.child("4").getKey());
+                    questArr.add(quest);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+            }
+        });
     }
 
     @Override
@@ -53,7 +64,7 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
-        nextButton = (Button)findViewById(R.id.Finish);
+        nextButton = (Button)findViewById(R.id.finish);
         nextButton.setOnClickListener(this);
         nextAns1Button = (Button)findViewById(R.id.ans1);
         nextAns1Button.setOnClickListener(this);
@@ -61,14 +72,16 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
         nextAns2Button.setOnClickListener(this);
         nextAns3Button = (Button)findViewById(R.id.ans3);
         nextAns3Button.setOnClickListener(this);
-
+        nextAns4Button = (Button)findViewById(R.id.ans4);
+        nextAns4Button.setOnClickListener(this);
+        readQuestionnaireFromFirebase(); //Reads the questionnaire from firebase.
     }
 
     @Override
     public void onClick(View v)
     {
         //Moves to profile activity.
-        if(v == nextButton && i > 3)
+        if(v == nextButton && i > questArr.size())
         {
             Intent getFromMain = getIntent();
             //intent to Profile
@@ -76,19 +89,21 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
             startActivity(intentProfile);
         }
 
-        if((v == nextAns1Button || v == nextAns2Button || v == nextAns3Button))
+        //Goes to the next question in the list.
+        if((v == nextAns1Button || v == nextAns2Button || v == nextAns3Button || v == nextAns4Button))
         {
-            if(i < 3)
+            if(i < questArr.size())
             {
-                readFromFirebase();
-                TextView quiz = (TextView) findViewById(R.id.questions);
-                quiz.setText(questions.get(i));
-                nextAns1Button.setText(answer1.get(i));
-                nextAns2Button.setText(answer2.get(i));
-                nextAns3Button.setText(answer3.get(i));
+                TextView question = (TextView)findViewById(R.id.questions);
+                question.setText(questArr.get(i).getQuestion());
+                nextAns1Button.setText(questArr.get(i).getAns1());
+                nextAns2Button.setText(questArr.get(i).getAns2());
+                nextAns3Button.setText(questArr.get(i).getAns3());
+                nextAns4Button.setText(questArr.get(i).getAns4());
             }
             i++;
-            if(i == 4)
+            //If the end of questions.
+            if(i == questArr.size() + 1)
             {
                 nextButton.setBackgroundColor(Color.parseColor("#F82727"));
             }

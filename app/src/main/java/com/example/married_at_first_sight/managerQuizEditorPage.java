@@ -39,13 +39,13 @@ public class managerQuizEditorPage extends AppCompatActivity
         //Database connection;
         database = FirebaseDatabase.getInstance().getReference();
 
-        questionnaire newQuiz = new questionnaire(questionET.getText().toString(),
+        questionnaire newQuest = new questionnaire(questionET.getText().toString(),
                                                   answer1ET.getText().toString().trim(),
                                                   answer2ET.getText().toString().trim(),
                                                   answer3ET.getText().toString().trim(),
                                                   answer4ET.getText().toString().trim());
 
         //Send the new question and it's answers to firebase.
-        database.child("Questions").child(questionET.getText().toString()).setValue(newQuiz);
+        database.child("Questions").child(questionET.getText().toString()).setValue(newQuest);
     }
 }
