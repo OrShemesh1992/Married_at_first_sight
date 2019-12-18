@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".statisticsOrEditQ">
+    tools:context=".managerOptionsPage">
 
     <Button
         android:id="@+id/statistics"
         android:layout_width="155dp"
         android:layout_height="51dp"
-        android:text="statistics"
         android:onClick="statistic"
+        android:text="Statistics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
@@ -20,15 +20,16 @@
         app:layout_constraintVertical_bias="0.61" />
 
     <Button
-        android:id="@+id/Edit_Q"
+        android:id="@+id/editQuestionnaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Editor questions"
-        android:onClick="Edit_Q"
+        android:onClick="editQuesionnaire"
+        android:text="Questionnaire"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.537" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

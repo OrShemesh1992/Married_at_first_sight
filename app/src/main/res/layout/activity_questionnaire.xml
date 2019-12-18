@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/heart"
-    tools:context=".questions">
+    tools:context=".questionnairePage">
+
+    <TextView
+        android:id="@+id/questions"
+        android:layout_width="194dp"
+        android:layout_height="96dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="Age"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="60sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
 
     <Button
         android:id="@+id/ans1"
@@ -60,7 +76,7 @@
         app:layout_constraintVertical_bias="0.884" />
 
     <Button
-        android:id="@+id/Finish"
+        android:id="@+id/finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ADF12E2E"
@@ -74,22 +90,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
-
-    <TextView
-        android:id="@+id/questions"
-        android:layout_width="194dp"
-        android:layout_height="96dp"
-        android:fontFamily="@font/annie_use_your_telescope"
-        android:text="Age"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="60sp"
-        android:typeface="monospace"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

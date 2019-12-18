@@ -32,7 +32,7 @@ import org.json.JSONObject;
 /*
 This class is the main application page.
  */
-public class mainActivity extends AppCompatActivity implements View.OnClickListener
+public class mainPage extends AppCompatActivity implements View.OnClickListener
 {
     Button login;
     LoginButton facebook;
@@ -56,11 +56,11 @@ public class mainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        login = (Button)findViewById(R.id.Manager_Login);
+        login = (Button)findViewById(R.id.managerLogin);
         login.setOnClickListener(this);
         //For facebook connect
         callbackManager = CallbackManager.Factory.create();
-        facebook = (LoginButton) findViewById(R.id.login_button);
+        facebook = (LoginButton) findViewById(R.id.facebookLogin);
         facebook.setOnClickListener(this);
         //take data
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -72,10 +72,10 @@ public class mainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void Getstarted(View view){
         token = AccessToken.getCurrentAccessToken();
-        Intent intent = new Intent(getApplicationContext(), matches.class);
+        Intent intent = new Intent(getApplicationContext(), matchPage.class);
         //Means user is not logged in
         if (token == null) {
-            Toast.makeText(mainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mainPage.this, "Not Connected", Toast.LENGTH_SHORT).show();
         }else {
             startActivity(intent);
         }
@@ -96,11 +96,11 @@ public class mainActivity extends AppCompatActivity implements View.OnClickListe
     //creatDialog to Manager
     public void creatDialog(){
         d = new Dialog(this);
-        d.setContentView(R.layout.activity_login_maanger);
+        d.setContentView(R.layout.activity_manager_login);
         d.setTitle("Login");
-        ConnectButton = (Button)d.findViewById(R.id.ConnectId);
-        USer = (EditText) d.findViewById(R.id.User);
-        Pass = (EditText) d.findViewById(R.id.Password);
+        ConnectButton = (Button)d.findViewById(R.id.connect);
+        USer = (EditText) d.findViewById(R.id.user);
+        Pass = (EditText) d.findViewById(R.id.password);
         ConnectButton.setOnClickListener(this);
         d.show();
     }
@@ -118,12 +118,12 @@ public class mainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(mainActivity.this, "Connect", Toast.LENGTH_SHORT).show();
-                                Intent launchactivity = new Intent(mainActivity.this, statisticsOrEditQ.class);
+                                Toast.makeText(mainPage.this, "Connect", Toast.LENGTH_SHORT).show();
+                                Intent launchactivity = new Intent(mainPage.this, managerOptionsPage.class);
                                 startActivity(launchactivity);
 
                             } else {
-                                Toast.makeText(mainActivity.this,"Try again",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mainPage.this,"Try again",Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -150,10 +150,10 @@ public class mainActivity extends AppCompatActivity implements View.OnClickListe
                                     e.printStackTrace();
                                 }
 
-                                Toast.makeText(mainActivity.this,  name +" Connect", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mainPage.this,  name +" Connect", Toast.LENGTH_SHORT).show();
                                 facebookData p = new facebookData(id,name,email," ");
                                 mDatabase.child("faceData").child(id).setValue(p);
-                                Intent intent = new Intent(getApplicationContext(), questions.class);
+                                Intent intent = new Intent(getApplicationContext(), questionnairePage.class);
                                 startActivity(intent);
                             }
                         });
@@ -170,7 +170,6 @@ public class mainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);

@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".matches"></activity>
-        <activity android:name=".editProfile" />
-        <activity android:name=".statistics" />
-        <activity android:name=".statisticsOrEditQ" />
-        <activity android:name=".userProfile" />
+        <activity android:name=".matchPage"></activity>
+        <activity android:name=".editProfilePage" />
+        <activity android:name=".statisticsPage" />
+        <activity android:name=".managerOptionsPage" />
+        <activity android:name=".userProfilePage" />
         <activity android:name=".FaceProfile" />
         <activity android:name=".Profile" />
-        <activity android:name=".managerQuizEditor" />
+        <activity android:name=".managerQuizEditorPage" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -44,9 +44,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".questions"
+            android:name=".questionnairePage"
             android:theme="@style/AppTheme.FullScreen" />
-        <activity android:name=".mainActivity">
+        <activity android:name=".mainPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 This class is for the manager quiz editor page.
 He can add or edit a question to fire base for the user quiz.
  */
-public class managerQuizEditor extends AppCompatActivity
+public class managerQuizEditorPage extends AppCompatActivity
 {
     EditText questionET; //Question to add or to edit.
     EditText answer1ET; //Answer 1 to add.
@@ -39,11 +39,11 @@ public class managerQuizEditor extends AppCompatActivity
         //Database connection;
         database = FirebaseDatabase.getInstance().getReference();
 
-        quiz newQuiz = new quiz(questionET.getText().toString(),
-                                                           answer1ET.getText().toString().trim(),
-                                                           answer2ET.getText().toString().trim(),
-                                                           answer3ET.getText().toString().trim(),
-                                                           answer4ET.getText().toString().trim());
+        questionnaire newQuiz = new questionnaire(questionET.getText().toString(),
+                                                  answer1ET.getText().toString().trim(),
+                                                  answer2ET.getText().toString().trim(),
+                                                  answer3ET.getText().toString().trim(),
+                                                  answer4ET.getText().toString().trim());
 
         //Send the new question and it's answers to firebase.
         database.child("Questions").child(questionET.getText().toString()).setValue(newQuiz);

@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 
 /*
-This class is for the matches page.
+This class is for the match page.
  */
-public class matches extends AppCompatActivity
+public class matchPage extends AppCompatActivity
 {
     Intent intent;
 
@@ -16,12 +16,12 @@ public class matches extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_matches);
+        setContentView(R.layout.activity_match);
     }
 
     public void MyProfile(View view)
     {
-        intent = new Intent(getApplicationContext(), userProfile.class);
+        intent = new Intent(getApplicationContext(), userProfilePage.class);
         startActivity(intent);
     }
 }

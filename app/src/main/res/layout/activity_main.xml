@@ -6,33 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/wedding"
     android:visibility="visible"
-    tools:context=".mainActivity">
-
-    <Button
-        android:id="@+id/Manager_Login"
-        style="@android:style/Widget.Button"
-        android:layout_width="176dp"
-        android:layout_height="27dp"
-        android:background="#A30F0F"
-        android:text="Manager Login"
-        android:textColor="#F5EAEA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="176dp"
-        android:layout_height="27dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+    tools:context=".mainPage">
 
     <Button
         android:id="@+id/start"
@@ -48,6 +22,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.637" />
 
+    <Button
+        android:id="@+id/managerLogin"
+        style="@android:style/Widget.Button"
+        android:layout_width="176dp"
+        android:layout_height="27dp"
+        android:background="#A30F0F"
+        android:text="Manager Login"
+        android:textColor="#F5EAEA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.734" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/facebookLogin"
+        android:layout_width="176dp"
+        android:layout_height="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@ This class is for the user profile page.
 It gets details about the user from facebook,
 and adds them to firebase.
  */
-public class userProfile extends AppCompatActivity
+public class userProfilePage extends AppCompatActivity
 {
     TextView nameTV; //Person name.
     TextView ageTV; //Person age.
@@ -73,7 +73,7 @@ public class userProfile extends AppCompatActivity
      */
     public void editProfile(View view)
     {
-        intent = new Intent(getApplicationContext(), editProfile.class);
+        intent = new Intent(getApplicationContext(), editProfilePage.class);
         startActivity(intent);
     }
 }

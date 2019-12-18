@@ -9,18 +9,21 @@ import android.widget.Button;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class questions extends AppCompatActivity implements View.OnClickListener
+/*
+This class is for the questionnaire page.
+ */
+public class questionnairePage extends AppCompatActivity implements View.OnClickListener
 {
-
     int i = 0; //index.
-    Button next;
-    Button nextAns1;
-    Button nextAns2;
-    Button nextAns3;
+    Button nextButton;
+    Button nextAns1Button;
+    Button nextAns2Button;
+    Button nextAns3Button;
     ArrayList<String> answer1 = new ArrayList<>(); //List of answers.
     ArrayList<String> answer2 = new ArrayList<>(); //List of answers.
     ArrayList<String> answer3 = new ArrayList<>(); //List of answers.
     ArrayList<String> questions = new ArrayList<>(); //List of questions.
+
     /*
     Needs to be read from fireBase!
     */
@@ -49,15 +52,15 @@ public class questions extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions);
-        next = (Button)findViewById(R.id.Finish);
-        next.setOnClickListener(this);
-        nextAns1 = (Button)findViewById(R.id.ans1);
-        nextAns1.setOnClickListener(this);
-        nextAns2 = (Button)findViewById(R.id.ans2);
-        nextAns2.setOnClickListener(this);
-        nextAns3 = (Button)findViewById(R.id.ans3);
-        nextAns3.setOnClickListener(this);
+        setContentView(R.layout.activity_questionnaire);
+        nextButton = (Button)findViewById(R.id.Finish);
+        nextButton.setOnClickListener(this);
+        nextAns1Button = (Button)findViewById(R.id.ans1);
+        nextAns1Button.setOnClickListener(this);
+        nextAns2Button = (Button)findViewById(R.id.ans2);
+        nextAns2Button.setOnClickListener(this);
+        nextAns3Button = (Button)findViewById(R.id.ans3);
+        nextAns3Button.setOnClickListener(this);
 
     }
 
@@ -65,29 +68,29 @@ public class questions extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v)
     {
         //Moves to profile activity.
-        if(v == next && i > 3)
+        if(v == nextButton && i > 3)
         {
             Intent getFromMain = getIntent();
             //intent to Profile
-            Intent intentProfile = new Intent(this, matches.class);
+            Intent intentProfile = new Intent(this, matchPage.class);
             startActivity(intentProfile);
         }
 
-        if((v == nextAns1 || v == nextAns2 || v == nextAns3))
+        if((v == nextAns1Button || v == nextAns2Button || v == nextAns3Button))
         {
             if(i < 3)
             {
                 readFromFirebase();
                 TextView quiz = (TextView) findViewById(R.id.questions);
                 quiz.setText(questions.get(i));
-                nextAns1.setText(answer1.get(i));
-                nextAns2.setText(answer2.get(i));
-                nextAns3.setText(answer3.get(i));
+                nextAns1Button.setText(answer1.get(i));
+                nextAns2Button.setText(answer2.get(i));
+                nextAns3Button.setText(answer3.get(i));
             }
             i++;
             if(i == 4)
             {
-                next.setBackgroundColor(Color.parseColor("#F82727"));
+                nextButton.setBackgroundColor(Color.parseColor("#F82727"));
             }
         }
     }

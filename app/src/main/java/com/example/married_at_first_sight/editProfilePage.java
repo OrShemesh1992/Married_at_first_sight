@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /*
 This class is for edit the user profile page.
  */
-public class editProfile extends AppCompatActivity
+public class editProfilePage extends AppCompatActivity
 {
     EditText editAgeED; //For edit age.
     final Profile profile = Profile.getCurrentProfile(); //To get the current profile.
