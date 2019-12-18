@@ -7,6 +7,10 @@ import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/*
+This class is for the manager quiz editor page.
+He can add or edit a question to fire base for the user quiz.
+ */
 public class managerQuizEditor extends AppCompatActivity
 {
     EditText questionET; //Question to add or to edit.
@@ -20,13 +24,13 @@ public class managerQuizEditor extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer);
+        setContentView(R.layout.activity_manager_quiz_editor);
     }
 
     public void Send(View view)
     {
         //Connect to buttons.
-        questionET = (EditText)findViewById(R.id.questionsend);
+        questionET = (EditText)findViewById(R.id.question);
         answer1ET = (EditText)findViewById(R.id.answer1);
         answer2ET = (EditText)findViewById(R.id.answer2);
         answer3ET = (EditText)findViewById(R.id.answer3);

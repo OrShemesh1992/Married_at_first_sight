@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".date">
+    tools:context=".matches">
 
     <Button
-        android:id="@+id/MyProfile"
+        android:id="@+id/myProfile"
         android:layout_width="132dp"
         android:layout_height="50dp"
         android:text="My Profile"
@@ -18,4 +18,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

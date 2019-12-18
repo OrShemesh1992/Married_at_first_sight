@@ -29,9 +29,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    //variable
+/*
+This class is the main application page.
+ */
+public class mainActivity extends AppCompatActivity implements View.OnClickListener
+{
     Button login;
     LoginButton facebook;
     Button ConnectButton;
@@ -70,10 +72,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void Getstarted(View view){
         token = AccessToken.getCurrentAccessToken();
-        Intent intent = new Intent(getApplicationContext(), date.class);
+        Intent intent = new Intent(getApplicationContext(), matches.class);
         //Means user is not logged in
         if (token == null) {
-            Toast.makeText(MainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();
         }else {
             startActivity(intent);
         }
@@ -116,12 +118,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "Connect", Toast.LENGTH_SHORT).show();
-                                Intent launchactivity = new Intent(MainActivity.this, statisticsOrEditQ.class);
+                                Toast.makeText(mainActivity.this, "Connect", Toast.LENGTH_SHORT).show();
+                                Intent launchactivity = new Intent(mainActivity.this, statisticsOrEditQ.class);
                                 startActivity(launchactivity);
 
                             } else {
-                                Toast.makeText(MainActivity.this,"Try again",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mainActivity.this,"Try again",Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -148,8 +150,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     e.printStackTrace();
                                 }
 
-                                Toast.makeText(MainActivity.this,  name +" Connect", Toast.LENGTH_SHORT).show();
-                                FaceData p = new FaceData(id,name,email," ");
+                                Toast.makeText(mainActivity.this,  name +" Connect", Toast.LENGTH_SHORT).show();
+                                facebookData p = new facebookData(id,name,email," ");
                                 mDatabase.child("faceData").child(id).setValue(p);
                                 Intent intent = new Intent(getApplicationContext(), questions.class);
                                 startActivity(intent);

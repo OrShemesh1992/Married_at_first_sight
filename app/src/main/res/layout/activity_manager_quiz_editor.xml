@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".answers">
-
+    tools:context=".managerQuizEditor">
 
     <EditText
-        android:id="@+id/questionsend"
+        android:id="@+id/question"
         android:layout_width="339dp"
         android:layout_height="48dp"
         android:hint="Question"
@@ -64,11 +63,11 @@
         app:layout_constraintVertical_bias="0.515" />
 
     <Button
-        android:id="@+id/Send"
+        android:id="@+id/Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="Send"
-        android:text="Send"
+        android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

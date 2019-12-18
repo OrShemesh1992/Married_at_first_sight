@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".date"></activity>
-        <activity android:name=".EditProfile" />
+        <activity android:name=".matches"></activity>
+        <activity android:name=".editProfile" />
         <activity android:name=".statistics" />
         <activity android:name=".statisticsOrEditQ" />
-        <activity android:name=".ProfileFace" />
+        <activity android:name=".userProfile" />
         <activity android:name=".FaceProfile" />
         <activity android:name=".Profile" />
         <activity android:name=".managerQuizEditor" />
@@ -46,7 +46,7 @@
         <activity
             android:name=".questions"
             android:theme="@style/AppTheme.FullScreen" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".mainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/wedding"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".mainActivity">
 
     <Button
         android:id="@+id/Manager_Login"
