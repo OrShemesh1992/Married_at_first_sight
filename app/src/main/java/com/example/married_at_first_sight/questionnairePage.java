@@ -41,14 +41,14 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                for (DataSnapshot child : dataSnapshot.getChildren())
+                for (DataSnapshot child : dataSnapshot.child("Questionnaire").getChildren())
                 {
-                    questionnaire quest = new questionnaire(
-                            dataSnapshot.getKey(),
-                            child.child("1").getKey(),
-                            child.child("2").getKey(),
-                            child.child("3").getKey(),
-                            child.child("4").getKey());
+                    questionnaire quest = new questionnaire
+                            (child.getKey(),
+                            child.child("1").getValue(String.class),
+                            child.child("2").getValue(String.class),
+                            child.child("3").getValue(String.class),
+                            child.child("4").getValue(String.class));
                     questArr.add(quest);
                 }
             }
