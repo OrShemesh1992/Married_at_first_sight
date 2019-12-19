@@ -65,7 +65,7 @@
         android:layout_height="34dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
-        android:onClick="Send"
+        android:onClick="send"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -17,7 +17,6 @@ public class managerQuizEditorPage extends AppCompatActivity
     EditText answer1ET; //Answer 1 to add.
     EditText answer2ET; //Answer 2 to add.
     EditText answer3ET; //Answer 3 to add.
-    EditText answer4ET; //Answer 4 to add.
     DatabaseReference database; //Database for the quiz.
 
     @Override
@@ -27,7 +26,7 @@ public class managerQuizEditorPage extends AppCompatActivity
         setContentView(R.layout.activity_manager_quiz_editor);
     }
 
-    public void Send(View view)
+    public void send(View view)
     {
         //Connect to buttons.
         questionET = (EditText)findViewById(R.id.question);
@@ -45,5 +44,11 @@ public class managerQuizEditorPage extends AppCompatActivity
 
         //Send the new question and it's answers to firebase.
         database.child("Questions").child(questionET.getText().toString()).setValue(newQuest);
+
+        //Clears all the buttons.
+        questionET.setText("");
+        answer1ET.setText("");
+        answer2ET.setText("");
+        answer3ET.setText("");
     }
 }
