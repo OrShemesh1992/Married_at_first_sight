@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import android.widget.Toast;
 
 /*
 This class is for the manager quiz editor page.
@@ -33,6 +34,16 @@ public class managerQuizEditorPage extends AppCompatActivity
         answer1ET = (EditText)findViewById(R.id.answer1);
         answer2ET = (EditText)findViewById(R.id.answer2);
         answer3ET = (EditText)findViewById(R.id.answer3);
+
+        if (questionET.getText().toString() == "")
+        {
+            Toast.makeText(managerQuizEditorPage.this, "Question is empty", Toast.LENGTH_SHORT).show();
+        }
+
+        if (answer1ET.getText().toString() == "" || answer2ET.getText().toString() == "" || answer3ET.getText().toString() == "")
+        {
+            Toast.makeText(managerQuizEditorPage.this, "Answers are empty", Toast.LENGTH_SHORT).show();
+        }
 
         //Database connection;
         database = FirebaseDatabase.getInstance().getReference();

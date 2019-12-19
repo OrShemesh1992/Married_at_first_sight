@@ -44,7 +44,7 @@ public class userProfilePage extends AppCompatActivity
     }
 
     /*
-    This function gets details from fire base about the user.
+    This function gets details from firebase about the user.
      */
     public void fb_details()
     {
