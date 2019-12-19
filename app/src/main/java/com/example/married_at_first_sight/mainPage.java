@@ -187,7 +187,6 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
                                     id = object.getString("id");
                                     name = object.getString("name");
                                     email = object.getString("email");
-
                                 }
                                 catch (JSONException e)
                                 {
