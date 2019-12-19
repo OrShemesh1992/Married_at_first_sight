@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/user"
-        android:layout_width="203dp"
+        android:layout_width="237dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:autoText="false"
@@ -19,7 +19,7 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="203dp"
+        android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ems="10"
@@ -35,6 +35,5 @@
         android:backgroundTint="#E1F30707"
         android:fontFamily="casual"
         android:text="Connect"
-        android:textAllCaps="false"
         android:textSize="14sp" />
 </LinearLayout>

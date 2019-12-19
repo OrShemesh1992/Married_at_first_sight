@@ -23,6 +23,8 @@ public class userProfilePage extends AppCompatActivity
 {
     TextView nameTV; //Person name.
     TextView ageTV; //Person age.
+    TextView emailTV; //Person email.
+
     ProfilePictureView profilePicture; //Person profile picture.
     DatabaseReference database; //Database for facebook data.
     Intent intent;
@@ -34,7 +36,8 @@ public class userProfilePage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         nameTV = (TextView)findViewById(R.id.facebookName);
-        ageTV=(TextView)findViewById(R.id.facebookAge);
+        ageTV =(TextView)findViewById(R.id.facebookAge);
+        emailTV =(TextView)findViewById(R.id.facebookEmail);
         profilePicture = (ProfilePictureView)findViewById(R.id.facebookImage);
         profilePicture.setProfileId(profile.getId()); //Picture facebook profile id.
         fb_details();
@@ -59,6 +62,7 @@ public class userProfilePage extends AppCompatActivity
                     facebookData fd = dataSnapshot.child("faceData").child(profileId).getValue(facebookData.class);
                     nameTV.setText(fd.name);
                     ageTV.setText(fd.age);
+                    emailTV.setText(fd.email);
                 }
             }
             @Override

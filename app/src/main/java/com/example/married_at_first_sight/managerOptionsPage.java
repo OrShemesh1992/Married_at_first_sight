@@ -31,7 +31,7 @@ public class managerOptionsPage extends AppCompatActivity
     /*
     This function is for the statistic button.
      */
-    public void editQuesionnaire(View view)
+    public void editQuestionnaire(View view)
     {
         intent = new Intent(getApplicationContext(), managerQuizEditorPage.class);
         startActivity(intent);

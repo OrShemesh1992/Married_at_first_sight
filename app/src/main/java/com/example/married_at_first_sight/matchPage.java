@@ -19,7 +19,10 @@ public class matchPage extends AppCompatActivity
         setContentView(R.layout.activity_match);
     }
 
-    public void MyProfile(View view)
+    /*
+    This function is for the profile button.
+     */
+    public void myProfile(View view)
     {
         intent = new Intent(getApplicationContext(), userProfilePage.class);
         startActivity(intent);

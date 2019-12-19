@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/heart3"
     tools:context=".statisticsPage">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

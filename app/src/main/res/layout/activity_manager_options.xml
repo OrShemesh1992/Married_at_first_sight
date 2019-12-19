@@ -4,32 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".managerOptionsPage">
 
     <Button
-        android:id="@+id/statistics"
-        android:layout_width="155dp"
-        android:layout_height="51dp"
-        android:onClick="statistic"
-        android:text="Statistics"
+        android:id="@+id/editQuestionnaire"
+        android:layout_width="117dp"
+        android:layout_height="43dp"
+        android:background="@drawable/button2"
+        android:fontFamily="casual"
+        android:onClick="editQuestionnaire"
+        android:text="Questionnaire"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.887"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.741" />
 
     <Button
-        android:id="@+id/editQuestionnaire"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="editQuesionnaire"
-        android:text="Questionnaire"
+        android:id="@+id/statistics"
+        android:layout_width="117dp"
+        android:layout_height="44dp"
+        android:background="@drawable/button2"
+        android:fontFamily="casual"
+        android:onClick="statistic"
+        android:text="Statistics"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.74" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

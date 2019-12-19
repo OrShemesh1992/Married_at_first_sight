@@ -34,7 +34,6 @@ public class managerQuizEditorPage extends AppCompatActivity
         answer1ET = (EditText)findViewById(R.id.answer1);
         answer2ET = (EditText)findViewById(R.id.answer2);
         answer3ET = (EditText)findViewById(R.id.answer3);
-        answer4ET = (EditText)findViewById(R.id.answer4);
 
         //Database connection;
         database = FirebaseDatabase.getInstance().getReference();
