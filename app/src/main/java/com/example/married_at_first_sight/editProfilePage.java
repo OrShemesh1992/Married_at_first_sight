@@ -1,6 +1,8 @@
 package com.example.married_at_first_sight;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -16,7 +18,7 @@ public class editProfilePage extends AppCompatActivity
     EditText editAgeED; //For edit age.
     final Profile profile = Profile.getCurrentProfile(); //To get the current profile.
     DatabaseReference database; //Datebase for edit profile.
-
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -31,6 +33,8 @@ public class editProfilePage extends AppCompatActivity
     {
         editAgeED = (EditText)findViewById(R.id.age);
         database = FirebaseDatabase.getInstance().getReference();
-        database.child("faceData").child(profile.getId()).child("birthday").setValue(editAgeED.getText().toString().trim());
+        database.child("faceData").child(profile.getId()).child("age").setValue(editAgeED.getText().toString().trim());
+        intent = new Intent(getApplicationContext(), userProfilePage.class);
+        startActivity(intent);
     }
 }
