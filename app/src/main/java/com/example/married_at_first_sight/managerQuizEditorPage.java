@@ -45,16 +45,19 @@ public class managerQuizEditorPage extends AppCompatActivity
             Toast.makeText(managerQuizEditorPage.this, "Answers are empty", Toast.LENGTH_SHORT).show();
         }
 
-        //Database connection;
-        database = FirebaseDatabase.getInstance().getReference();
+        else
+        {
+            //Database connection;
+            database = FirebaseDatabase.getInstance().getReference();
 
-        questionnaire newQuest = new questionnaire(questionET.getText().toString(),
-                                                  answer1ET.getText().toString().trim(),
-                                                  answer2ET.getText().toString().trim(),
-                                                  answer3ET.getText().toString().trim());
+            questionnaire newQuest = new questionnaire(questionET.getText().toString(),
+                    answer1ET.getText().toString().trim(),
+                    answer2ET.getText().toString().trim(),
+                    answer3ET.getText().toString().trim());
 
-        //Send the new question and it's answers to firebase.
-        database.child("Questions").child(questionET.getText().toString()).setValue(newQuest);
+            //Send the new question and it's answers to firebase.
+            database.child("Questions").child(questionET.getText().toString()).setValue(newQuest);
+        }
 
         //Clears all the buttons.
         questionET.setText("");
