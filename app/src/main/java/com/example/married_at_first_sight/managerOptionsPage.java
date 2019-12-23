@@ -29,7 +29,7 @@ public class managerOptionsPage extends AppCompatActivity
     }
 
     /*
-    This function is for the statistic button.
+    This function is for the questionnaire button.
      */
     public void editQuestionnaire(View view)
     {

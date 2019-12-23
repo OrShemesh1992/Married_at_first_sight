@@ -48,6 +48,7 @@ public class managerQuizEditorPage extends AppCompatActivity
         else
         {
             //Database connection;
+
             database = FirebaseDatabase.getInstance().getReference();
 
             questionnaire newQuest = new questionnaire(questionET.getText().toString(),
@@ -56,7 +57,7 @@ public class managerQuizEditorPage extends AppCompatActivity
                     answer3ET.getText().toString().trim());
 
             //Send the new question and it's answers to firebase.
-            database.child("Questions").child(questionET.getText().toString()).setValue(newQuest);
+            database.child("Questionnaire").child(questionET.getText().toString()).setValue(newQuest);
         }
 
         //Clears all the buttons.

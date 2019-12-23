@@ -29,7 +29,7 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
     DatabaseReference database; //Database for facebook data.
 
     /*
-    This function reads the Questionnaire from fire base,
+    This function reads the Questionnaire from firebase,
     and make a list of questionnaire.
      */
     public void readQuestionnaireFromFirebase()
@@ -45,9 +45,9 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
                 {
                     questionnaire quest = new questionnaire
                             (child.getKey(),
-                            child.child("1").getValue(String.class),
-                            child.child("2").getValue(String.class),
-                            child.child("3").getValue(String.class));
+                            child.child("ans1").getValue(String.class),
+                            child.child("ans2").getValue(String.class),
+                            child.child("ans3").getValue(String.class));
                     questArr.add(quest);
                 }
             }
