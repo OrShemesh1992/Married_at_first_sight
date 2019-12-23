@@ -57,7 +57,10 @@ public class managerQuizEditorPage extends AppCompatActivity
                     answer3ET.getText().toString().trim());
 
             //Send the new question and it's answers to firebase.
-            database.child("Questionnaire").child(questionET.getText().toString()).setValue(newQuest);
+            database.child("Questionnaire").child(questionET.getText().toString()).child("ans1").setValue(answer1ET.getText().toString());
+            database.child("Questionnaire").child(questionET.getText().toString()).child("ans2").setValue(answer2ET.getText().toString());
+            database.child("Questionnaire").child(questionET.getText().toString()).child("ans3").setValue(answer3ET.getText().toString());
+
         }
 
         //Clears all the buttons.
