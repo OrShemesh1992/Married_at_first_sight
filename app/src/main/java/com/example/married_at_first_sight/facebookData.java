@@ -5,10 +5,10 @@ This class is a facebook person data.
  */
 public class facebookData
 {
-    public String id; //Unique person facebook id.
-    public String name; //Person facebook name.
-    public String age; //Person age.
-    public String email; //Person email.
+    private String id; //Unique person facebook id.
+    private String name; //Person facebook name.
+    private String age; //Person age.
+    private String email; //Person email.
 
     /*
     An empty constructor.
@@ -30,5 +30,45 @@ public class facebookData
     this.name = _name;
     this.age = _age;
     this.email = _email;
+    }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getAge()
+    {
+        return age;
+    }
+
+    public void setAge(String age)
+    {
+        this.age = age;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
     }
 }

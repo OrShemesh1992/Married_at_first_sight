@@ -60,9 +60,9 @@ public class userProfilePage extends AppCompatActivity
                 if(dataSnapshot.getValue() != null)
                 {
                     facebookData fd = dataSnapshot.child("faceData").child(profileId).getValue(facebookData.class);
-                    nameTV.setText(fd.name);
-                    ageTV.setText(fd.age);
-                    emailTV.setText(fd.email);
+                    nameTV.setText(fd.getName());
+                    ageTV.setText(fd.getAge());
+                    emailTV.setText(fd.getEmail());
                 }
             }
             @Override
