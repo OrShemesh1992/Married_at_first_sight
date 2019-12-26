@@ -27,7 +27,7 @@ public class managerQuizEditorPage extends AppCompatActivity
         setContentView(R.layout.activity_manager_quiz_editor);
     }
 
-    public void send(View view)
+    public void addQuestionToFB(View view)
     {
         //Connect to buttons.
         questionET = (EditText)findViewById(R.id.question);
@@ -61,6 +61,7 @@ public class managerQuizEditorPage extends AppCompatActivity
             database.child("Questionnaire").child(questionET.getText().toString()).child("ans2").setValue(answer2ET.getText().toString());
             database.child("Questionnaire").child(questionET.getText().toString()).child("ans3").setValue(answer3ET.getText().toString());
 
+            Toast.makeText(managerQuizEditorPage.this, "Add successfully", Toast.LENGTH_SHORT).show();
         }
 
         //Clears all the buttons.
