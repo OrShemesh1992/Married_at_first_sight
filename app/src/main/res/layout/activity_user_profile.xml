@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/black"
+    android:background="@drawable/profile3"
     tools:context=".userProfilePage">
 
     <TextView
@@ -20,10 +20,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73" />
+        app:layout_constraintVertical_bias="0.856" />
 
     <TextView
         android:id="@+id/facebookName"
@@ -37,10 +37,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.707" />
 
     <TextView
         android:id="@+id/facebookAge"
@@ -54,24 +54,30 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintVertical_bias="0.779" />
 
     <com.facebook.login.widget.ProfilePictureView
         android:id="@+id/facebookImage"
-        android:layout_width="174dp"
-        android:layout_height="174dp"
-        android:background="@drawable/shape"
+        android:layout_width="202dp"
+        android:layout_height="176dp"
+        android:alwaysDrawnWithCache="false"
+        android:background="@drawable/frame"
+        android:backgroundTint="#7CFFFFFF"
+        android:fadingEdge="vertical"
         android:scrollbarStyle="outsideOverlay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048"
-        app:srcCompat="@android:drawable/alert_dark_frame" />
+        app:layout_constraintVertical_bias="0.028"
+        app:srcCompat="@android:drawable/alert_dark_frame"
+        tools:visibility="visible">
+
+    </com.facebook.login.widget.ProfilePictureView>
 
     <Button
         android:id="@+id/editProfile"

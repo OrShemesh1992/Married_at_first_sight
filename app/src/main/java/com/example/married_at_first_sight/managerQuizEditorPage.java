@@ -35,12 +35,12 @@ public class managerQuizEditorPage extends AppCompatActivity
         answer2ET = (EditText)findViewById(R.id.answer2);
         answer3ET = (EditText)findViewById(R.id.answer3);
 
-        if (questionET.getText().toString() == "")
+        if (questionET.getText().toString().isEmpty())
         {
             Toast.makeText(managerQuizEditorPage.this, "Question is empty", Toast.LENGTH_SHORT).show();
         }
 
-        if (answer1ET.getText().toString() == "" || answer2ET.getText().toString() == "" || answer3ET.getText().toString() == "")
+        else if (answer1ET.getText().toString().isEmpty() || answer2ET.getText().toString().isEmpty() || answer3ET.getText().toString().isEmpty())
         {
             Toast.makeText(managerQuizEditorPage.this, "Answers are empty", Toast.LENGTH_SHORT).show();
         }
@@ -48,13 +48,7 @@ public class managerQuizEditorPage extends AppCompatActivity
         else
         {
             //Database connection;
-
             database = FirebaseDatabase.getInstance().getReference();
-
-            questionnaire newQuest = new questionnaire(questionET.getText().toString(),
-                    answer1ET.getText().toString().trim(),
-                    answer2ET.getText().toString().trim(),
-                    answer3ET.getText().toString().trim());
 
             //Send the new question and it's answers to firebase.
             database.child("Questionnaire").child(questionET.getText().toString()).child("ans1").setValue(answer1ET.getText().toString());
