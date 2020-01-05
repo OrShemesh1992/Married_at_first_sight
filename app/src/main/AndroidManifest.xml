@@ -11,13 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".matchPage"></activity>
+        <activity android:name=".message"></activity>
+        <activity android:name=".matchPage" />
         <activity android:name=".editProfilePage" />
         <activity android:name=".statisticsPage" />
         <activity android:name=".managerOptionsPage" />
         <activity android:name=".userProfilePage" />
-        <activity android:name=".FaceProfile" />
-        <activity android:name=".Profile" />
         <activity android:name=".managerQuizEditorPage" />
 
         <meta-data

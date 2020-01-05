@@ -4,61 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile"
-    tools:context=".matchPage">
-
+    tools:context=".message">
 
     <Button
-        android:id="@+id/profile"
+        android:id="@+id/Send"
         android:layout_width="131dp"
         android:layout_height="43dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
-        android:onClick="myProfile"
-        android:text="My Profile"
+        android:onClick="Send"
+        android:text="Send"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-     studio and fire base
-    <Button
-        android:id="@+id/message"
-        android:layout_width="131dp"
+    <EditText
+        android:id="@+id/message_send"
+        android:layout_width="281dp"
         android:layout_height="43dp"
-        android:background="@drawable/shape"
         android:fontFamily="casual"
-        android:onClick="message"
-        android:text="Message"
-        android:textAllCaps="false"
+        android:hint="Create message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <com.facebook.login.widget.ProfilePictureView
-        android:id="@+id/matchImage"
-        android:layout_width="284dp"
-        android:layout_height="275dp"
-        android:alwaysDrawnWithCache="false"
-        android:background="@drawable/frame"
-        android:backgroundTint="#7CFFFFFF"
-        android:fadingEdge="vertical"
-        android:scrollbarStyle="outsideOverlay"
+    <TextView
+        android:id="@+id/get_nessage"
+        android:layout_width="406dp"
+        android:layout_height="659dp"
+        android:fontFamily="casual"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        app:srcCompat="@android:drawable/alert_dark_frame"
-        tools:visibility="visible">
-
-    </com.facebook.login.widget.ProfilePictureView>/>
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
