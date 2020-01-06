@@ -80,4 +80,9 @@ public class userProfilePage extends AppCompatActivity
         intent = new Intent(getApplicationContext(), editProfilePage.class);
         startActivity(intent);
     }
+
+    public void back(View view) {
+        intent = new Intent(getApplicationContext(), matchPage.class);
+        startActivity(intent);
+    }
 }

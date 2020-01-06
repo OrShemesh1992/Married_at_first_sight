@@ -85,7 +85,7 @@ public class matchPage extends AppCompatActivity {
 
     public void message(View view) {
 
-        Intent i = new Intent(this, message.class);
+        Intent i = new Intent(this, messagePage.class);
         i.putExtra("sendID", matchID);
         startActivity(i);
     }

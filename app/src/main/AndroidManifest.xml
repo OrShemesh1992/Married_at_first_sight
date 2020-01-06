@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".message"></activity>
+        <activity android:name=".messagePage"></activity>
         <activity android:name=".matchPage" />
         <activity android:name=".editProfilePage" />
         <activity android:name=".statisticsPage" />

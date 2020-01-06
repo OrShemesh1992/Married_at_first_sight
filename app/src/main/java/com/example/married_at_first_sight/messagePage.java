@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class message extends AppCompatActivity {
+public class messagePage extends AppCompatActivity {
     String Matchid;
     EditText Message;
     DatabaseReference database;
@@ -42,13 +42,13 @@ public class message extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String messege = "";
-                for (DataSnapshot mess : dataSnapshot.child("message").child(profile.getId()).child(Matchid).getChildren()) {
+                for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(Matchid).getChildren()) {
                     if (mess.child(profile.getId()) != null) {
                         messege += "you: " + mess.getValue(String.class) + "\n";
                         Showconversation.setText(messege);
                     }
                 }
-                for (DataSnapshot mess : dataSnapshot.child("message").child(Matchid).child(profile.getId()).getChildren()) {
+                for (DataSnapshot mess : dataSnapshot.child("messagePage").child(Matchid).child(profile.getId()).getChildren()) {
                     messege += "Your match: " + mess.getValue(String.class) + "\n";
                     Showconversation.setText(messege);
                 }
@@ -61,12 +61,12 @@ public class message extends AppCompatActivity {
 
     }
     /*
-     send to fire base message
+     send to fire base messagePage
     */
     public void Send(View view) {
         Message = (EditText) findViewById(R.id.message_send);
-        database = FirebaseDatabase.getInstance().getReference().child("message").child(profile.getId()).child(Matchid);
-        database.push().setValue(Message.getText().toString().trim());
+        database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(profile.getId()).child(Matchid);
+        database.push().setValue("you"+Message.getText().toString().trim());
         Message.getText().clear();
         conversation();
     }
