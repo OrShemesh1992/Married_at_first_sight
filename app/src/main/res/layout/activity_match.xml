@@ -8,6 +8,8 @@
     tools:context=".matchPage">
 
 
+    studio and fire base
+
     <Button
         android:id="@+id/profile"
         android:layout_width="131dp"
@@ -24,7 +26,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-     studio and fire base
     <Button
         android:id="@+id/message"
         android:layout_width="131dp"
@@ -36,7 +37,7 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
