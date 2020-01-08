@@ -9,13 +9,13 @@
     tools:context=".statisticsPage">
 
     <Button
-        android:id="@+id/clear"
+        android:id="@+id/show"
         android:layout_width="82dp"
         android:layout_height="34dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
-        android:onClick="clear"
-        android:text="Clear"
+        android:onClick="show"
+        android:text="Show Statistic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.139"
@@ -34,6 +34,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.941" />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="82dp"
+        android:layout_height="34dp"
+        android:background="@drawable/shape"
+        android:fontFamily="casual"
+        android:onClick="home"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.941" />

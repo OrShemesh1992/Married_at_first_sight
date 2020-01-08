@@ -81,8 +81,19 @@ public class userProfilePage extends AppCompatActivity
         startActivity(intent);
     }
 
+    /*
+    Go to match page
+     */
     public void back(View view) {
         intent = new Intent(getApplicationContext(), matchPage.class);
         startActivity(intent);
+    }
+
+    /*
+    Go to home page
+     */
+    public void Home(View view) {
+        Intent i = new Intent(this, mainPage.class);
+        startActivity(i);
     }
 }
