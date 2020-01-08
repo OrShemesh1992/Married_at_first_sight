@@ -3,6 +3,7 @@
     package="com.example.married_at_first_sight">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".messagePage"></activity>
+        <activity android:name=".GetCurrentLocation"></activity>
+        <activity android:name=".getLocation" />
+        <activity android:name=".messagePage" />
         <activity android:name=".matchPage" />
         <activity android:name=".editProfilePage" />
         <activity android:name=".statisticsPage" />

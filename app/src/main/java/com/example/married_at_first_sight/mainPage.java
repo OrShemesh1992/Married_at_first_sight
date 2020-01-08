@@ -193,7 +193,7 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
                                     e.printStackTrace();
                                 }
 
-                                Toast.makeText(mainPage.this, name + "Connect", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mainPage.this, name + " Welcome", Toast.LENGTH_SHORT).show();
                                 facebookData p = new facebookData(id ,name, " ",email);
                                 database.child("faceData").child(id).setValue(p);
                                 Intent intent = new Intent(getApplicationContext(), questionnairePage.class);

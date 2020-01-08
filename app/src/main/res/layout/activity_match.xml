@@ -10,9 +10,61 @@
 
     studio and fire base
 
+    <TextView
+        android:id="@+id/text_Precent"
+        android:layout_width="155dp"
+        android:layout_height="82dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="Percent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="60sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839" />
+
+    <TextView
+        android:id="@+id/Precent"
+        android:layout_width="109dp"
+        android:layout_height="82dp"
+        android:fontFamily="casual"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="60sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="340dp"
+        android:layout_height="133dp"
+        android:fontFamily="casual"
+        android:text="City"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#030303"
+        android:textSize="30sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106" />
+
     <Button
         android:id="@+id/profile"
-        android:layout_width="131dp"
+        android:layout_width="100dp"
         android:layout_height="43dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
@@ -28,7 +80,7 @@
 
     <Button
         android:id="@+id/message"
-        android:layout_width="131dp"
+        android:layout_width="100dp"
         android:layout_height="43dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
@@ -38,6 +90,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape"
+        android:fontFamily="casual"
+        android:onClick="Home"
+        android:text="Home"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
