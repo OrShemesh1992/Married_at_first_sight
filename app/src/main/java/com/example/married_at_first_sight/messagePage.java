@@ -8,6 +8,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.facebook.Profile;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,6 +21,7 @@ import java.util.TimerTask;
 
 public class messagePage extends AppCompatActivity
 {
+    int send = 1;
     String Matchid;
     EditText messageET;
     TextView conversationTV;
@@ -69,6 +72,7 @@ public class messagePage extends AppCompatActivity
                             {
                                 message += "<font color='red'>" + mess.getValue(String.class) + "</font>" + "<br />";
                             }
+
                             conversationTV.setText(Html.fromHtml(message), TextView.BufferType.SPANNABLE);
                         }
                     }
@@ -96,6 +100,8 @@ public class messagePage extends AppCompatActivity
             database.push().setValue(profile.getFirstName() + ": " + messageET.getText().toString().trim());
             messageET.getText().clear();
             conversation();
+            Toast.makeText(messagePage.this, "Message send", Toast.LENGTH_SHORT).show();
+            send = 1;
         }
     }
 
@@ -126,5 +132,6 @@ public class messagePage extends AppCompatActivity
             }
         });
         conversationTV.setText(null);
+        Toast.makeText(messagePage.this, "All clear", Toast.LENGTH_SHORT).show();
     }
 }
