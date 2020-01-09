@@ -3,6 +3,7 @@ package com.example.married_at_first_sight;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
@@ -55,11 +56,20 @@ public class messagePage extends AppCompatActivity
             {
                 if (dataSnapshot.exists())
                 {
-                    String messege = "";
-                    for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(Matchid).getChildren()) {
-                        if (mess.child(profile.getId()) != null) {
-                            messege += mess.getValue(String.class) + "\n";
-                            conversationTV.setText(messege);
+                    String message = "";
+                    for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(Matchid).getChildren())
+                    {
+                        if (mess.child(profile.getId()) != null)
+                        {
+                            if(mess.getValue(String.class).startsWith("you:"))
+                            {
+                                message += mess.getValue(String.class) + "<br />";
+                            }
+                            else
+                            {
+                                message += "<font color='red'>" + mess.getValue(String.class) + "</font>" + "<br />";
+                            }
+                            conversationTV.setText(Html.fromHtml(message), TextView.BufferType.SPANNABLE);
                         }
                     }
                 }
