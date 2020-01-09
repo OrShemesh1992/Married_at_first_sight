@@ -1,7 +1,6 @@
 package com.example.married_at_first_sight;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.facebook.Profile;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,8 +19,7 @@ import java.util.TimerTask;
 
 public class messagePage extends AppCompatActivity
 {
-    int send = 1;
-    String Matchid;
+    String matchID;
     EditText messageET;
     TextView conversationTV;
     DatabaseReference database;
@@ -35,7 +32,7 @@ public class messagePage extends AppCompatActivity
         setContentView(R.layout.activity_message);
         //get match id from another activity
         Bundle extras = getIntent().getExtras();
-        Matchid = extras.getString("sendID");
+        matchID = extras.getString("sendID");
         conversationTV = (TextView)findViewById(R.id.conversation);
         conversationTV.setMovementMethod(new ScrollingMovementMethod());
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -60,7 +57,7 @@ public class messagePage extends AppCompatActivity
                 if (dataSnapshot.exists())
                 {
                     String message = "";
-                    for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(Matchid).getChildren())
+                    for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(matchID).getChildren())
                     {
                         if (mess.child(profile.getId()) != null)
                         {
@@ -94,14 +91,13 @@ public class messagePage extends AppCompatActivity
         messageET = (EditText)findViewById(R.id.message);
         if(!messageET.getText().toString().isEmpty())
         {
-            database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(profile.getId()).child(Matchid);
+            database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(profile.getId()).child(matchID);
             database.push().setValue("you: " + messageET.getText().toString().trim());
-            database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(Matchid).child(profile.getId());
+            database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(matchID).child(profile.getId());
             database.push().setValue(profile.getFirstName() + ": " + messageET.getText().toString().trim());
             messageET.getText().clear();
             conversation();
             Toast.makeText(messagePage.this, "Message send", Toast.LENGTH_SHORT).show();
-            send = 1;
         }
     }
 
@@ -116,7 +112,7 @@ public class messagePage extends AppCompatActivity
             {
                 if (dataSnapshot.exists())
                 {
-                    for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(Matchid).getChildren())
+                    for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(matchID).getChildren())
                     {
                         if (mess.child(profile.getId()) != null)
                         {
