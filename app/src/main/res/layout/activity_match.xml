@@ -11,7 +11,7 @@
     studio and fire base
 
     <TextView
-        android:id="@+id/Name"
+        android:id="@+id/name"
         android:layout_width="187dp"
         android:layout_height="37dp"
         android:background="#003A2F2F"
@@ -46,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699" />
+        app:layout_constraintVertical_bias="0.717" />
 
     <TextView
         android:id="@+id/Precent"
@@ -63,10 +63,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699" />
+        app:layout_constraintVertical_bias="0.717" />
 
     <TextView
         android:id="@+id/city"

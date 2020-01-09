@@ -12,6 +12,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class matchPage extends AppCompatActivity
     String matchID = "";
     TextView percentTV;
     TextView cityTV;
+    TextView nameTV;
 
     //For gps cordinition:
     private LocationManager locationManager = null;
@@ -56,6 +58,7 @@ public class matchPage extends AppCompatActivity
         setContentView(R.layout.activity_match);
         percentTV = (TextView)findViewById(R.id.Precent);
         cityTV = (TextView)findViewById(R.id.city);
+        nameTV = (TextView)findViewById(R.id.name);
         getMatch();
         new Timer().scheduleAtFixedRate(new TimerTask()
         {
@@ -63,13 +66,12 @@ public class matchPage extends AppCompatActivity
             public void run()
             {
                 getStatistic();
-                setLocation();
+                setLocationAndName();
             }
         }, 0, 5000);
 
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         getGPS();
-
     }
 
     /*
@@ -166,6 +168,7 @@ public class matchPage extends AppCompatActivity
                                 matchImage.setProfileId(matchID);
                                 percentTV.setText("0");
                                 cityTV.setText("City");
+                                nameTV.setText("Name");
                             }
                         }
                     }
@@ -201,7 +204,7 @@ public class matchPage extends AppCompatActivity
     /*
     Sets City in the match page.
      */
-    public void setLocation()
+    public void setLocationAndName()
     {
         database = FirebaseDatabase.getInstance().getReference();
         database.addListenerForSingleValueEvent(new ValueEventListener()
@@ -209,8 +212,11 @@ public class matchPage extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                if (matchID != "") {
+                if (matchID != "")
+                {
                     String cityName = dataSnapshot.child("gps_city").child(matchID).getValue(String.class);
+                    String personName = dataSnapshot.child("faceData").child(matchID).child("name").getValue(String.class);
+                    nameTV.setText(personName);
                     cityTV.setText(cityName);
                 }
             }
