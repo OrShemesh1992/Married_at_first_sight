@@ -83,7 +83,7 @@ public class messagePage extends AppCompatActivity
             database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(profile.getId()).child(Matchid);
             database.push().setValue("you: " + messageET.getText().toString().trim());
             database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(Matchid).child(profile.getId());
-            database.push().setValue("Your match: " + messageET.getText().toString().trim());
+            database.push().setValue(profile.getFirstName() + ": " + messageET.getText().toString().trim());
             messageET.getText().clear();
             conversation();
         }
