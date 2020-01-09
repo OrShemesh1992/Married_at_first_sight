@@ -140,9 +140,11 @@ public class statisticsPage extends AppCompatActivity
             }
         });
 
-//        showStat();
     }
 
+    /*
+    This function calculates the statics depending on the data in the fireBase.
+     */
     public void show(View view)
     {
         DatabaseReference database1 = FirebaseDatabase.getInstance().getReference();
@@ -196,9 +198,4 @@ public class statisticsPage extends AppCompatActivity
         startActivity(intent);
     }
 
-//    public void home(View view)
-//    {
-//        intent = new Intent(getApplicationContext(), mainPage.class);
-//        startActivity(intent);
-//    }
 }
