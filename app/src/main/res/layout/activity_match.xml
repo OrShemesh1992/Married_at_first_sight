@@ -31,42 +31,43 @@
 
     <TextView
         android:id="@+id/text_Precent"
-        android:layout_width="84dp"
-        android:layout_height="69dp"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
         android:fontFamily="casual"
-        android:gravity="center"
         android:text="%"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#EC1A25"
-        android:textSize="50sp"
+        android:textSize="55sp"
+        android:textStyle="italic"
         android:typeface="monospace"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.629"
+        app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintVertical_bias="0.724" />
 
     <TextView
         android:id="@+id/Precent"
         android:layout_width="87dp"
-        android:layout_height="69dp"
+        android:layout_height="66dp"
         android:fontFamily="casual"
         android:gravity="center"
         android:shadowColor="#F5C21E1E"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#EC1A25"
-        android:textSize="50sp"
+        android:textSize="55sp"
+        android:textStyle="italic"
         android:typeface="monospace"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintVertical_bias="0.724" />
 
     <TextView
         android:id="@+id/city"

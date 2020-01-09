@@ -1,7 +1,7 @@
 package com.example.married_at_first_sight;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -19,9 +19,9 @@ import java.util.TimerTask;
 public class messagePage extends AppCompatActivity
 {
     String Matchid;
-    EditText Message;
+    EditText messageET;
+    TextView conversationTV;
     DatabaseReference database;
-    TextView Showconversation;
     final Profile profile = Profile.getCurrentProfile();
 
     @Override
@@ -32,39 +32,42 @@ public class messagePage extends AppCompatActivity
         //get match id from another activity
         Bundle extras = getIntent().getExtras();
         Matchid = extras.getString("sendID");
-        Showconversation = (TextView)findViewById(R.id.get_nessage);
-        Showconversation.setMovementMethod(new ScrollingMovementMethod());
+        conversationTV = (TextView)findViewById(R.id.conversation);
+        conversationTV.setMovementMethod(new ScrollingMovementMethod());
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 conversation();
             }
         }, 0, 1000);
-
     }
 
     /*
      get from fire base conversation
     */
-    public void conversation() {
+    public void conversation()
+    {
         database = FirebaseDatabase.getInstance().getReference();
-
-        database.addListenerForSingleValueEvent(new ValueEventListener() {
+        database.addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                if (dataSnapshot.exists())
+                {
                     String messege = "";
                     for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(Matchid).getChildren()) {
                         if (mess.child(profile.getId()) != null) {
                             messege += mess.getValue(String.class) + "\n";
-                            Showconversation.setText(messege);
+                            conversationTV.setText(messege);
                         }
                     }
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
             }
         });
     }
@@ -72,14 +75,46 @@ public class messagePage extends AppCompatActivity
     /*
      send to fire base messagePage
     */
-    public void Send(View view)
+    public void send(View view)
     {
-        Message = (EditText)findViewById(R.id.message_send);
-        database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(profile.getId()).child(Matchid);
-        database.push().setValue("you: " + Message.getText().toString().trim());
-        database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(Matchid).child(profile.getId());
-        database.push().setValue("Your match: " + Message.getText().toString().trim());
-        Message.getText().clear();
-        conversation();
+        messageET = (EditText)findViewById(R.id.message);
+        if(!messageET.getText().toString().isEmpty())
+        {
+            database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(profile.getId()).child(Matchid);
+            database.push().setValue("you: " + messageET.getText().toString().trim());
+            database = FirebaseDatabase.getInstance().getReference().child("messagePage").child(Matchid).child(profile.getId());
+            database.push().setValue("Your match: " + messageET.getText().toString().trim());
+            messageET.getText().clear();
+            conversation();
+        }
+    }
+
+    public void clear(View view)
+    {
+
+        database = FirebaseDatabase.getInstance().getReference();
+        database.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                if (dataSnapshot.exists())
+                {
+                    for (DataSnapshot mess : dataSnapshot.child("messagePage").child(profile.getId()).child(Matchid).getChildren())
+                    {
+                        if (mess.child(profile.getId()) != null)
+                        {
+                            mess.getRef().removeValue();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+            }
+        });
+        conversationTV.setText(null);
     }
 }

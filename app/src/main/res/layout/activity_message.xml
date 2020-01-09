@@ -5,18 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ring2"
-    tools:context=".matchPage">"
+    tools:context=".matchPage"><![CDATA["
     tools:context=".messagePage">
 
+
+
+
+
+
+
+    ]]>
+
     <Button
-        android:id="@+id/Send"
+        android:id="@+id/clear"
+        android:layout_width="53dp"
+        android:layout_height="29dp"
+        android:background="@drawable/shape"
+        android:fontFamily="casual"
+        android:onClick="clear"
+        android:text="Clear"
+        android:textAllCaps="false"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <Button
+        android:id="@+id/send"
         android:layout_width="78dp"
         android:layout_height="31dp"
         android:background="@drawable/shape"
+        android:backgroundTint="#E1F30707"
         android:fontFamily="casual"
-        android:onClick="Send"
+        android:onClick="send"
         android:text="Send"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
@@ -25,7 +52,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <EditText
-        android:id="@+id/message_send"
+        android:id="@+id/message"
         android:layout_width="285dp"
         android:layout_height="48dp"
         android:fontFamily="casual"
@@ -38,7 +65,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/get_nessage"
+        android:id="@+id/conversation"
         android:layout_width="346dp"
         android:layout_height="517dp"
         android:fontFamily="casual"
