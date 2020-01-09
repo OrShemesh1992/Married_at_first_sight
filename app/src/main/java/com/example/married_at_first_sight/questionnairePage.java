@@ -130,8 +130,10 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
         }
 
         //Goes to the next question in the list.
-        if((v == nextAns1Button || v == nextAns2Button || v == nextAns3Button)) {
-            if (i < questArr.size()) {
+        if((v == nextAns1Button || v == nextAns2Button || v == nextAns3Button))
+        {
+            if (i < questArr.size())
+            {
                 question.setText(questArr.get(i).getQuestion());
                 nextAns1Button.setText(questArr.get(i).getAns1());
                 nextAns2Button.setText(questArr.get(i).getAns2());
@@ -139,7 +141,8 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
             }
             i++;
             //If the end of questions.
-            if (i == questArr.size() + 1) {
+            if (i == questArr.size() + 1)
+            {
                 nextButton.setBackgroundColor(Color.parseColor("#F82727"));
             }
         }

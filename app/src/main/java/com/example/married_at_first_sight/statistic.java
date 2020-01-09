@@ -2,11 +2,18 @@ package com.example.married_at_first_sight;
 
 import java.util.HashMap;
 
+/*
+This class is for the statistic of the users.
+For the manager only.
+ */
 public class statistic
 {
     public String question;
     public HashMap<String, Double> answers;
 
+    /*
+    A constructor.
+     */
     public statistic (String que)
     {
         question = que;
