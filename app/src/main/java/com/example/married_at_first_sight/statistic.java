@@ -9,7 +9,7 @@ For the manager only.
 public class statistic
 {
     public String question;
-    public HashMap<String, Double> answers;
+    public HashMap<String, Float> answers;
 
     /*
     A constructor.
@@ -17,7 +17,7 @@ public class statistic
     public statistic (String que)
     {
         question = que;
-        answers = new HashMap<String, Double>();
+        answers = new HashMap<String, Float>();
     }
 
 }
