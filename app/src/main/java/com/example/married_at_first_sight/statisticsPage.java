@@ -1,19 +1,27 @@
 package com.example.married_at_first_sight;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +42,8 @@ public class statisticsPage extends AppCompatActivity
 
     private float[] yData = {25.3f, 10.6f, 64.10f};
     private String[] xData = {"Maayan", "Nahama", "Or"};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -183,8 +193,48 @@ public class statisticsPage extends AppCompatActivity
 
     public void showPieChart()
     {
-//        pieChart = (PieChart) findViewById(R.id.idPieChart);
-//        pieChart.setDescription("Result of Statistics");
+
+        PieChart pieChart = (PieChart) findViewById(R.id.chart);
+
+
+        //pieChart data set.
+        pieChart.setRotationEnabled(true);
+        pieChart.setHoleRadius(25f);
+        pieChart.setTransparentCircleAlpha(0);
+        pieChart.setCenterText("Age");
+        pieChart.setCenterTextSize(20);
+        pieChart.setScrollBarSize(20);
+
+        addDataSet(pieChart);
+
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+
+                int pos1 = e.toString().indexOf("y: ");
+                String stats = e.toString().substring(pos1 + 3);
+
+                for (int i = 0; i < yData.length; i++) {
+                    if (yData[i] == Float.parseFloat(stats)) {
+                        pos1 = i;
+                        break;
+                    }
+                }
+
+                String ans = xData[pos1];
+                Toast.makeText(statisticsPage.this, "Answer: " + ans + "\n" + "Statistics: " + stats + " %", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+    }
+
+    private void addDataSet(PieChart chart)
+    {
+        ArrayList<PieEntry> yEntry = new ArrayList<>();
 
         List<PieEntry> pieEntries = new ArrayList<>();
 
@@ -193,23 +243,30 @@ public class statisticsPage extends AppCompatActivity
             pieEntries.add(new PieEntry(yData[i], xData[i]));
         }
 
-        PieDataSet dataSet = new PieDataSet(pieEntries, "Result for Statistics");
-        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        PieData data = new PieData(dataSet);
+        for (int i = 0; i < yData.length; i++)
+        {
+            yEntry.add(new PieEntry(yData[i], i));
+        }
 
-        PieChart chart = (PieChart) findViewById(R.id.chart);
-        chart.setData(data);
-        chart.setRotationEnabled(true);
-        chart.setHoleRadius(25f);
-        chart.setTransparentCircleAlpha(0);
-        chart.setCenterText("Age");
-        chart.setCenterTextSize(20);
-        chart.setScrollBarSize(20);
+        //create data set
+        PieDataSet pieDataSet = new PieDataSet(pieEntries, "");
+        pieDataSet.setSliceSpace(2);
+        pieDataSet.setValueTextSize(12);
 
 
+        //add colors to data set
+        ArrayList<Integer> colors = new ArrayList<>();
+        colors.add(Color.RED);
+        colors.add(Color.GREEN);
+        colors.add(Color.CYAN);
+        pieDataSet.setColors(colors);
+
+
+        //create pie data object
+        PieData pieData = new PieData(pieDataSet);
+        chart.setData(pieData);
         chart.animateY(1000);
         chart.invalidate();
-
     }
 
 }

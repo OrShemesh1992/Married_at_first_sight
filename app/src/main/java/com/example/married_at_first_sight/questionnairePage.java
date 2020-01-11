@@ -86,9 +86,6 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
 
         if (v == nextAns1Button)
         {
-//            database = FirebaseDatabase.getInstance().getReference().child("Answers").child(profile.getId());
-//            arrAns.add(new answers((String) question.getText(),(String) nextAns1Button.getText()));
-//            database.setValue(arrAns);
             database = FirebaseDatabase.getInstance().getReference().child("Answers").child(profile.getId()).child((String) question.getText());
             database.setValue((String) nextAns1Button.getText());
             answers.add(nextAns1Button.getText().toString());
@@ -97,9 +94,6 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
         }
         else if (v == nextAns2Button)
         {
-//            database = FirebaseDatabase.getInstance().getReference().child("Answers").child(profile.getId());
-//            arrAns.add(new answers((String) question.getText(),(String) nextAns2Button.getText()));
-//            database.setValue(arrAns);
             database = FirebaseDatabase.getInstance().getReference().child("Answers").child(profile.getId()).child((String) question.getText());
             database.setValue((String) nextAns2Button.getText());
             answers.add(nextAns2Button.getText().toString());
@@ -109,9 +103,6 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
         }
         else if (v == nextAns3Button)
         {
-//            database = FirebaseDatabase.getInstance().getReference().child("Answers").child(profile.getId());
-//            arrAns.add(new answers((String) question.getText(),(String) nextAns3Button.getText()));
-//            database.setValue(arrAns);
             database = FirebaseDatabase.getInstance().getReference().child("Answers").child(profile.getId()).child((String) question.getText());
             database.setValue((String) nextAns3Button.getText());
             answers.add(nextAns3Button.getText().toString());
@@ -120,7 +111,6 @@ public class questionnairePage extends AppCompatActivity implements View.OnClick
             Log.v("check3", (String) nextAns3Button.getText());
         }
 
-        int counter;
         //Moves to profile activity.
         if(v == nextButton && i > questArr.size())
         {
