@@ -20,4 +20,9 @@ public class statistic
         answers = new HashMap<String, Float>();
     }
 
+    public String getQuestion()
+    {
+        return question;
+    }
+
 }

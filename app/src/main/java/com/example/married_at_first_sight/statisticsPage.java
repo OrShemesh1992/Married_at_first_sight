@@ -39,6 +39,7 @@ public class statisticsPage extends AppCompatActivity
     ArrayList<statistic> allStatistics = new ArrayList<statistic>();
     Intent intent;
     static int countPeople = 0;
+    int counter = 0; //Count the questions;
 
     private float[] yData = {25.3f, 10.6f, 64.10f};
     private String[] xData = {"Maayan", "Nahama", "Or"};
@@ -51,7 +52,7 @@ public class statisticsPage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
         clear();
-        showPieChart();
+//        showPieChart();
     }
 
     /*
@@ -191,6 +192,40 @@ public class statisticsPage extends AppCompatActivity
         startActivity(intent);
     }
 
+    public void nextStat(View view)
+    {
+        statistic stat;
+        if (counter < questArr.size())
+        {
+            stat = allStatistics.get(counter);
+            question = stat.getQuestion();
+
+            //Add first answer to the array.
+            answer = questArr.get(counter).getAns1();
+            yData[0] = stat.answers.get(answer);
+            xData[0] = answer;
+
+            //Add second answer to the array.
+            answer = questArr.get(counter).getAns2();
+            yData[1] = stat.answers.get(answer);
+            xData[1] = answer;
+
+            answer = questArr.get(counter).getAns3();
+            yData[2] = stat.answers.get(answer);
+            xData[2] = answer;
+
+            counter++;
+        }
+        else
+        {
+            counter = 0;
+            nextStat(view);
+        }
+
+        showPieChart();
+
+    }
+
     public void showPieChart()
     {
 
@@ -201,7 +236,7 @@ public class statisticsPage extends AppCompatActivity
         pieChart.setRotationEnabled(true);
         pieChart.setHoleRadius(25f);
         pieChart.setTransparentCircleAlpha(0);
-        pieChart.setCenterText("Age");
+        pieChart.setCenterText(question);
         pieChart.setCenterTextSize(20);
         pieChart.setScrollBarSize(20);
 

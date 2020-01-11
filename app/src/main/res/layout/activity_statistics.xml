@@ -10,20 +10,39 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        tools:layout_editor_absoluteX="-13dp"
+        tools:layout_editor_absoluteY="39dp">
+
+    </com.github.mikephil.charting.charts.PieChart>
+
+    <Button
+        android:id="@+id/nextStat"
+        android:layout_width="107dp"
+        android:layout_height="34dp"
+        android:background="@drawable/shape"
+        android:fontFamily="casual"
+        android:onClick="nextStat"
+        android:text="Next Statistic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07999998" />
 
     <Button
         android:id="@+id/show"
         android:layout_width="82dp"
-        android:layout_height="34dp"
+        android:layout_height="40dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
         android:onClick="show"
         android:text="Show Statistic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.941" />
@@ -38,22 +57,21 @@
         android:text="Results"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.941" />
 
     <Button
-        android:id="@+id/home"
+        android:id="@+id/back"
         android:layout_width="82dp"
         android:layout_height="34dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
-        android:onClick="home"
-        android:text="Home"
+        android:onClick="back"
+        android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.941" />
