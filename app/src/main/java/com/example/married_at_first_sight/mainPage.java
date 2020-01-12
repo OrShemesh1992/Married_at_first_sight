@@ -82,6 +82,8 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = firebaseAuth.getInstance();
 
+
+
     }
 
     /*
@@ -234,30 +236,5 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    //-------------------------Notification-------------------------
-    public void notification()
-    {
-        Intent messageIntent = new Intent(this, messagePage.class);
-        PendingIntent pendingMessageIntent = PendingIntent.getActivity(this, 0, messageIntent,0);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-        {
-            String channelId = "MY_CHANNEL_ID";
-            NotificationChannel channel = new NotificationChannel(channelId, "Channel title", NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("");
-            notificationManager.createNotificationChannel(channel);
-
-            NotificationCompat.Builder build = new NotificationCompat.Builder(getApplicationContext(), channelId);
-            Notification notification = build.setContentIntent (pendingMessageIntent)
-                    .setSmallIcon(R.drawable.com_facebook_button_icon)
-                    .setWhen(System.currentTimeMillis())
-                    .setAutoCancel(true)
-                    .setContentTitle("")
-                    .setContentText("content text").build();
-            build.setChannelId(channelId);
-
-            notificationManager.notify(1, notification);
-        }
-    }
 }

@@ -1,6 +1,13 @@
 package com.example.married_at_first_sight;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
@@ -9,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.facebook.Profile;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -98,6 +106,8 @@ public class messagePage extends AppCompatActivity
             messageET.getText().clear();
             conversation();
             Toast.makeText(messagePage.this, "Message send", Toast.LENGTH_SHORT).show();
+          //Send Notification
+            showNotification("Message", profile.getFirstName() +" send you Message");
         }
     }
 
@@ -129,5 +139,28 @@ public class messagePage extends AppCompatActivity
         });
         conversationTV.setText(null);
         Toast.makeText(messagePage.this, "All clear", Toast.LENGTH_SHORT).show();
+    }
+
+
+    //-------------------------Notification-------------------------
+    void showNotification(String title, String message) {
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("1",
+                    "Message",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription("Message");
+            mNotificationManager.createNotificationChannel(channel);
+        }
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "YOUR_CHANNEL_ID")
+                .setSmallIcon(R.mipmap.ic_launcher) // notification icon
+                .setContentTitle(title) // title for notification
+                .setContentText(message)// message for notification
+                .setAutoCancel(true); // clear notification after click
+        Intent intent = new Intent(getApplicationContext(), mainPage.class);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(pi);
+        mNotificationManager.notify(0, mBuilder.build());
     }
 }
