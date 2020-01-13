@@ -63,17 +63,16 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
     AccessToken token; //Check token facebook data.
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        managerLoginButton = (Button)findViewById(R.id.managerLogin);
+        managerLoginButton = (Button) findViewById(R.id.managerLogin);
         managerLoginButton.setOnClickListener(this);
 
         //Facebook connection.
         callbackManager = CallbackManager.Factory.create();
-        facebookLoginButton = (LoginButton)findViewById(R.id.facebookLogin);
+        facebookLoginButton = (LoginButton) findViewById(R.id.facebookLogin);
         facebookLoginButton.setOnClickListener(this);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -81,9 +80,6 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
 
         database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = firebaseAuth.getInstance();
-
-
-
     }
 
     /*
@@ -100,7 +96,9 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         }
         else
         {
+            startService(new Intent(this, NotificationService.class));
             startActivity(intent);
+
         }
     }
 
@@ -209,6 +207,7 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
                                 facebookData p = new facebookData(id ,name, " ",email);
                                 database.child("faceData").child(id).setValue(p);
                                 Intent intent = new Intent(getApplicationContext(), questionnairePage.class);
+                                startService(new Intent(getApplicationContext(), NotificationService.class));
                                 startActivity(intent);
                             }
                         });
@@ -235,6 +234,4 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
-
-
 }

@@ -12,8 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GetCurrentLocation"></activity>
-        <activity android:name=".getLocation" />
         <activity android:name=".messagePage" />
         <activity android:name=".matchPage" />
         <activity android:name=".editProfilePage" />
@@ -21,7 +19,15 @@
         <activity android:name=".managerOptionsPage" />
         <activity android:name=".userProfilePage" />
         <activity android:name=".managerQuizEditorPage" />
+        <service
+            android:name=".NotificationService"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="your.app.domain.NotificationService" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
