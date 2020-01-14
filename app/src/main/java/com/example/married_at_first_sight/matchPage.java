@@ -12,7 +12,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,7 +45,7 @@ public class matchPage extends AppCompatActivity
     TextView cityTV;
     TextView nameTV;
 
-    //For gps cordinition:
+    //For gps coordination:
     private LocationManager locationManager = null;
     private LocationListener locationListener = null;
     private Boolean flag = false;

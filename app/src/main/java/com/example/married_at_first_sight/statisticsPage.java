@@ -3,10 +3,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
@@ -14,14 +12,11 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,12 +34,10 @@ public class statisticsPage extends AppCompatActivity
     ArrayList<statistic> allStatistics = new ArrayList<statistic>();
     Intent intent;
     static int countPeople = 0;
-    int counter = 0; //Count the questions;
+    int counter = 0; //Counts the questions;
 
     private float[] yData = {25.3f, 10.6f, 64.10f};
     private String[] xData = {"Maayan", "Nahama", "Or"};
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -133,7 +126,6 @@ public class statisticsPage extends AppCompatActivity
             {
             }
         });
-
     }
 
     /*
@@ -192,7 +184,7 @@ public class statisticsPage extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void nextStat(View view)
+    public void nextState(View view)
     {
         statistic stat;
         if (counter < questArr.size())
@@ -219,18 +211,14 @@ public class statisticsPage extends AppCompatActivity
         else
         {
             counter = 0;
-            nextStat(view);
+            nextState(view);
         }
-
         showPieChart();
-
     }
 
     public void showPieChart()
     {
-
         PieChart pieChart = (PieChart) findViewById(R.id.chart);
-
 
         //pieChart data set.
         pieChart.setRotationEnabled(true);
@@ -242,27 +230,29 @@ public class statisticsPage extends AppCompatActivity
 
         addDataSet(pieChart);
 
-        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener()
+        {
             @Override
-            public void onValueSelected(Entry e, Highlight h) {
-
+            public void onValueSelected(Entry e, Highlight h)
+            {
                 int pos1 = e.toString().indexOf("y: ");
                 String stats = e.toString().substring(pos1 + 3);
 
-                for (int i = 0; i < yData.length; i++) {
-                    if (yData[i] == Float.parseFloat(stats)) {
+                for (int i = 0; i < yData.length; i++)
+                {
+                    if (yData[i] == Float.parseFloat(stats))
+                    {
                         pos1 = i;
                         break;
                     }
                 }
-
                 String ans = xData[pos1];
                 Toast.makeText(statisticsPage.this, "Answer: " + ans + "\n" + "Statistics: " + stats + " %", Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onNothingSelected() {
-
+            public void onNothingSelected()
+            {
             }
         });
     }
@@ -283,25 +273,23 @@ public class statisticsPage extends AppCompatActivity
             yEntry.add(new PieEntry(yData[i], i));
         }
 
-        //create data set
+        //Creates data set.
         PieDataSet pieDataSet = new PieDataSet(pieEntries, "");
         pieDataSet.setSliceSpace(2);
         pieDataSet.setValueTextSize(12);
 
 
-        //add colors to data set
+        //Adds colors to data set.
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(Color.RED);
         colors.add(Color.GREEN);
         colors.add(Color.CYAN);
         pieDataSet.setColors(colors);
 
-
-        //create pie data object
+        //Creates pie data object.
         PieData pieData = new PieData(pieDataSet);
         chart.setData(pieData);
         chart.animateY(1000);
         chart.invalidate();
     }
-
 }

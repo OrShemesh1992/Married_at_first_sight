@@ -1,5 +1,4 @@
 package com.example.married_at_first_sight;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -82,17 +81,19 @@ public class userProfilePage extends AppCompatActivity
     }
 
     /*
-    Go to match page
+    Goes to match page.
      */
-    public void back(View view) {
+    public void back(View view)
+    {
         intent = new Intent(getApplicationContext(), matchPage.class);
         startActivity(intent);
     }
 
     /*
-    Go to home page
+    Goes to home page.
      */
-    public void Home(View view) {
+    public void Home(View view)
+    {
         Intent i = new Intent(this, mainPage.class);
         startActivity(i);
     }

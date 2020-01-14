@@ -23,7 +23,7 @@
         android:layout_height="34dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
-        android:onClick="nextStat"
+        android:onClick="nextState"
         android:text="Next Statistic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile3"
+    android:background="@drawable/frame2"
     tools:context=".userProfilePage">
 
     <TextView
@@ -20,10 +20,9 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.856" />
+        app:layout_constraintVertical_bias="0.753" />
 
     <TextView
         android:id="@+id/facebookName"
@@ -37,10 +36,9 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.707" />
+        app:layout_constraintVertical_bias="0.627" />
 
     <TextView
         android:id="@+id/facebookAge"
@@ -54,15 +52,14 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
+        app:layout_constraintVertical_bias="0.69" />
 
     <com.facebook.login.widget.ProfilePictureView
         android:id="@+id/facebookImage"
-        android:layout_width="202dp"
-        android:layout_height="176dp"
+        android:layout_width="226dp"
+        android:layout_height="183dp"
         android:alwaysDrawnWithCache="false"
         android:background="@drawable/frame"
         android:backgroundTint="#7CFFFFFF"
@@ -70,10 +67,10 @@
         android:scrollbarStyle="outsideOverlay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028"
+        app:layout_constraintVertical_bias="0.085"
         app:srcCompat="@android:drawable/alert_dark_frame"
         tools:visibility="visible">
 
@@ -81,47 +78,46 @@
 
     <Button
         android:id="@+id/editProfile"
-        android:layout_width="82dp"
-        android:layout_height="34dp"
+        android:layout_width="61dp"
+        android:layout_height="25dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
         android:onClick="editProfile"
         android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.717"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.977" />
 
     <Button
         android:id="@+id/back"
-        android:layout_width="82dp"
-        android:layout_height="34dp"
+        android:layout_width="61dp"
+        android:layout_height="25dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
         android:onClick="back"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
 
     <Button
         android:id="@+id/home"
-        android:layout_width="82dp"
-        android:layout_height="34dp"
+        android:layout_width="61dp"
+        android:layout_height="25dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
         android:onClick="Home"
         android:text="Home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.985" />
+        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

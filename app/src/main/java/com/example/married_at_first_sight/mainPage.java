@@ -96,7 +96,7 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
         }
         else
         {
-            startService(new Intent(this, NotificationService.class));
+            startService(new Intent(this, notificationService.class));
             startActivity(intent);
 
         }
@@ -207,7 +207,7 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
                                 facebookData p = new facebookData(id ,name, " ",email);
                                 database.child("faceData").child(id).setValue(p);
                                 Intent intent = new Intent(getApplicationContext(), questionnairePage.class);
-                                startService(new Intent(getApplicationContext(), NotificationService.class));
+                                startService(new Intent(getApplicationContext(), notificationService.class));
                                 startActivity(intent);
                             }
                         });

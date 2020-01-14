@@ -1,7 +1,5 @@
 package com.example.married_at_first_sight;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
