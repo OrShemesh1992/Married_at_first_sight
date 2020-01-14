@@ -2,16 +2,7 @@ package com.example.married_at_first_sight;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationBuilderWithBuilderAccessor;
-import androidx.core.app.NotificationCompat;
-
 import android.app.Dialog;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -63,7 +54,8 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener
     AccessToken token; //Check token facebook data.
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
