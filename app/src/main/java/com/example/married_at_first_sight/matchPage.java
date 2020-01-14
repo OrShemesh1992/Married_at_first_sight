@@ -42,8 +42,10 @@ public class matchPage extends AppCompatActivity
     final Profile profile = Profile.getCurrentProfile();
     String matchID = "";
     TextView percentTV;
-    TextView cityTV;
     TextView nameTV;
+    TextView cityTV;
+    TextView ageTV;
+    int back = 0;
 
     //For gps coordination:
     private LocationManager locationManager = null;
@@ -56,8 +58,10 @@ public class matchPage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
         percentTV = (TextView)findViewById(R.id.Precent);
-        cityTV = (TextView)findViewById(R.id.city);
         nameTV = (TextView)findViewById(R.id.name);
+        cityTV = (TextView)findViewById(R.id.city);
+        ageTV = (TextView)findViewById(R.id.age);
+
         getMatch();
         new Timer().scheduleAtFixedRate(new TimerTask()
         {
@@ -137,6 +141,7 @@ public class matchPage extends AppCompatActivity
      */
     public void getMatch()
     {
+        matchImage = (ProfilePictureView) findViewById(R.id.matchImage);
         database = FirebaseDatabase.getInstance().getReference();
         database.addListenerForSingleValueEvent(new ValueEventListener()
         {
@@ -148,26 +153,35 @@ public class matchPage extends AppCompatActivity
                     String id = face.getKey();
                     arrUserId.add(id);
                 }
+                matchID = arrUserId.get(0);
+                matchImage.setProfileId(matchID);
+
                 //Sets a new id when click the match picture.
-                matchImage = (ProfilePictureView) findViewById(R.id.matchImage);
                 matchImage.setClickable(true);
 
                 matchImage.setOnClickListener(new View.OnClickListener()
                 {
-                    Iterator<String> It = arrUserId.iterator();
+                    int start = 0;
+                    Iterator<String> it = arrUserId.iterator();
 
                     @Override
                     public void onClick(View v)
                     {
-                        if(It.hasNext())
+                        if(it.hasNext())
                         {
-                            matchID = It.next();
+                            if(start == 0)
+                            {
+                                it.next();
+                                start = 1;
+                            }
+                            matchID = it.next();
                             if(matchID != profile.getId())
                             {
                                 matchImage.setProfileId(matchID);
                                 percentTV.setText("0");
                                 cityTV.setText("City");
                                 nameTV.setText("Name");
+                                ageTV.setText("Age");
                             }
                         }
                     }
@@ -215,8 +229,11 @@ public class matchPage extends AppCompatActivity
                 {
                     String cityName = dataSnapshot.child("gps_city").child(matchID).getValue(String.class);
                     String personName = dataSnapshot.child("faceData").child(matchID).child("name").getValue(String.class);
+                    String personAge = dataSnapshot.child("faceData").child(matchID).child("age").getValue(String.class);
+
                     nameTV.setText(personName);
                     cityTV.setText(cityName);
+                    ageTV.setText(personAge);
                 }
             }
             @Override

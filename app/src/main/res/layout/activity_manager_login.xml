@@ -34,6 +34,7 @@
         android:layout_gravity="center"
         android:backgroundTint="#E1F30707"
         android:fontFamily="casual"
+        android:onClick="managerConnection"
         android:text="Connect"
         android:textSize="14sp" />
 </LinearLayout>

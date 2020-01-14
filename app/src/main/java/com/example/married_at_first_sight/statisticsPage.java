@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -35,6 +36,7 @@ public class statisticsPage extends AppCompatActivity
     Intent intent;
     static int countPeople = 0;
     int counter = 0; //Counts the questions;
+    int show = 0;
 
     private float[] yData = {25.3f, 10.6f, 64.10f};
     private String[] xData = {"Maayan", "Nahama", "Or"};
@@ -176,6 +178,7 @@ public class statisticsPage extends AppCompatActivity
             {
             }
         });
+        show = 1;
     }
 
     public void back(View view)
@@ -186,34 +189,35 @@ public class statisticsPage extends AppCompatActivity
 
     public void nextState(View view)
     {
-        statistic stat;
-        if (counter < questArr.size())
+        if(show == 1)
         {
-            stat = allStatistics.get(counter);
-            question = stat.getQuestion();
+            statistic stat;
+            if (counter < questArr.size())
+            {
+                stat = allStatistics.get(counter);
+                question = stat.getQuestion();
 
-            //Add first answer to the array.
-            answer = questArr.get(counter).getAns1();
-            yData[0] = stat.answers.get(answer);
-            xData[0] = answer;
+                //Add first answer to the array.
+                answer = questArr.get(counter).getAns1();
+                yData[0] = stat.answers.get(answer);
+                xData[0] = answer;
 
-            //Add second answer to the array.
-            answer = questArr.get(counter).getAns2();
-            yData[1] = stat.answers.get(answer);
-            xData[1] = answer;
+                //Add second answer to the array.
+                answer = questArr.get(counter).getAns2();
+                yData[1] = stat.answers.get(answer);
+                xData[1] = answer;
 
-            answer = questArr.get(counter).getAns3();
-            yData[2] = stat.answers.get(answer);
-            xData[2] = answer;
+                answer = questArr.get(counter).getAns3();
+                yData[2] = stat.answers.get(answer);
+                xData[2] = answer;
 
-            counter++;
+                counter++;
+            } else {
+                counter = 0;
+                nextState(view);
+            }
+            showPieChart();
         }
-        else
-        {
-            counter = 0;
-            nextState(view);
-        }
-        showPieChart();
     }
 
     public void showPieChart()

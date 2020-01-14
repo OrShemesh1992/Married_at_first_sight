@@ -11,6 +11,25 @@
     studio and fire base
 
     <TextView
+        android:id="@+id/age"
+        android:layout_width="187dp"
+        android:layout_height="37dp"
+        android:background="#003A2F2F"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Age"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#7E131111"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.822" />
+
+    <TextView
         android:id="@+id/name"
         android:layout_width="187dp"
         android:layout_height="37dp"
@@ -27,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.801" />
+        app:layout_constraintVertical_bias="0.716" />
 
     <TextView
         android:id="@+id/text_Precent"
@@ -46,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <TextView
         android:id="@+id/Precent"
@@ -67,7 +86,7 @@
         app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <TextView
         android:id="@+id/city"
@@ -86,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854" />
+        app:layout_constraintVertical_bias="0.769" />
 
     <Button
         android:id="@+id/profile"
@@ -141,8 +160,8 @@
 
     <com.facebook.login.widget.ProfilePictureView
         android:id="@+id/matchImage"
-        android:layout_width="284dp"
-        android:layout_height="275dp"
+        android:layout_width="232dp"
+        android:layout_height="224dp"
         android:alwaysDrawnWithCache="false"
         android:background="@drawable/frame"
         android:backgroundTint="#7CFFFFFF"
@@ -150,13 +169,16 @@
         android:scrollbarStyle="outsideOverlay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41"
+        app:layout_constraintVertical_bias="0.311"
         app:srcCompat="@android:drawable/alert_dark_frame"
         tools:visibility="visible">
 
-    </com.facebook.login.widget.ProfilePictureView>/>
+    </com.facebook.login.widget.ProfilePictureView><![CDATA[
 
+    />
+
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

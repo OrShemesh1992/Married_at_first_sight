@@ -10,69 +10,77 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-13dp"
-        tools:layout_editor_absoluteY="39dp">
+        android:layout_width="416dp"
+        android:layout_height="734dp"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="-2dp">
 
     </com.github.mikephil.charting.charts.PieChart>
 
     <Button
-        android:id="@+id/nextStat"
-        android:layout_width="107dp"
-        android:layout_height="34dp"
-        android:background="@drawable/shape"
+        android:id="@+id/next"
+        android:layout_width="51dp"
+        android:layout_height="35dp"
+        android:background="@drawable/next2"
         android:fontFamily="casual"
         android:onClick="nextState"
-        android:text="Next Statistic"
+        android:textAllCaps="false"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07999998" />
+        app:layout_constraintVertical_bias="0.162" />
 
     <Button
         android:id="@+id/show"
         android:layout_width="82dp"
         android:layout_height="40dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/button"
         android:fontFamily="casual"
         android:onClick="show"
-        android:text="Show Statistic"
+        android:text="Show"
+        android:textColor="#B5090808"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+        app:layout_constraintVertical_bias="0.959" />
 
     <Button
         android:id="@+id/results"
         android:layout_width="82dp"
-        android:layout_height="34dp"
-        android:background="@drawable/shape"
+        android:layout_height="40dp"
+        android:background="@drawable/button"
         android:fontFamily="casual"
         android:onClick="results"
-        android:text="Results"
+        android:shadowColor="#FFFFFF"
+        android:text="Compute"
+        android:textColor="#B5090808"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+        app:layout_constraintVertical_bias="0.878" />
 
     <Button
         android:id="@+id/back"
-        android:layout_width="82dp"
-        android:layout_height="34dp"
+        android:layout_width="64dp"
+        android:layout_height="25dp"
         android:background="@drawable/shape"
         android:fontFamily="casual"
         android:onClick="back"
         android:text="Back"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+        app:layout_constraintVertical_bias="0.977" />
 </androidx.constraintlayout.widget.ConstraintLayout>
