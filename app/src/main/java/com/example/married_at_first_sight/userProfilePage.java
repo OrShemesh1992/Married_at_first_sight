@@ -71,7 +71,7 @@ public class userProfilePage extends AppCompatActivity
                         cityTV.setText(city);
                         cityTV.setTextColor(Color.BLACK);
                     }
-                    if(!fd.getAge().isEmpty())
+                    if(!fd.getAge().isEmpty() && fd.getAge() != " ")
                     {
                         ageTV.setText(fd.getAge());
                         ageTV.setTextColor(Color.BLACK);
