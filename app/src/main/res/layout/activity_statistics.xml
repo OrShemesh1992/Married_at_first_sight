@@ -8,6 +8,7 @@
     android:background="@drawable/heart3"
     tools:context=".statisticsPage">
 
+
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
         android:layout_width="416dp"
@@ -19,19 +20,23 @@
 
     <Button
         android:id="@+id/next"
-        android:layout_width="51dp"
-        android:layout_height="35dp"
-        android:background="@drawable/next2"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:background="@drawable/play"
+        android:cursorVisible="false"
+        android:drawable="@drawable/back"
         android:fontFamily="casual"
         android:onClick="nextState"
+        android:shadowColor="#00FFFFFF"
+        android:state_focused="true"
         android:textAllCaps="false"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.939" />
 
     <Button
         android:id="@+id/show"
