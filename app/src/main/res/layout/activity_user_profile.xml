@@ -13,7 +13,7 @@
         android:layout_width="173dp"
         android:layout_height="33dp"
         android:fontFamily="casual"
-        android:text="Email"
+        android:text="City?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="18sp"
         android:typeface="monospace"
@@ -22,14 +22,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753" />
+        app:layout_constraintVertical_bias="0.661" />
 
     <TextView
         android:id="@+id/facebookName"
         android:layout_width="173dp"
         android:layout_height="33dp"
         android:fontFamily="casual"
-        android:text="Name"
+        android:text="Name?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="18sp"
         android:typeface="monospace"
@@ -38,14 +38,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintVertical_bias="0.585" />
 
     <TextView
         android:id="@+id/facebookAge"
         android:layout_width="173dp"
         android:layout_height="33dp"
         android:fontFamily="casual"
-        android:text="Age"
+        android:onClick="editProfile"
+        android:text="Age?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="18sp"
         android:typeface="monospace"
@@ -54,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintVertical_bias="0.747" />
 
     <com.facebook.login.widget.ProfilePictureView
         android:id="@+id/facebookImage"
@@ -77,21 +78,6 @@
     </com.facebook.login.widget.ProfilePictureView>
 
     <Button
-        android:id="@+id/editProfile"
-        android:layout_width="61dp"
-        android:layout_height="25dp"
-        android:background="@drawable/shape"
-        android:fontFamily="casual"
-        android:onClick="editProfile"
-        android:text="Edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.717"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
-
-    <Button
         android:id="@+id/back"
         android:layout_width="61dp"
         android:layout_height="25dp"
@@ -101,7 +87,7 @@
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
@@ -116,6 +102,7 @@
         android:text="Home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />

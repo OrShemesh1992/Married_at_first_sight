@@ -1,6 +1,7 @@
 package com.example.married_at_first_sight;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +23,7 @@ public class userProfilePage extends AppCompatActivity
 {
     TextView nameTV; //Person name.
     TextView ageTV; //Person age.
-    TextView emailTV; //Person email.
+    TextView cityTV; //Person email.
 
     ProfilePictureView profilePicture; //Person profile picture.
     DatabaseReference database; //Database for facebook data.
@@ -36,7 +37,7 @@ public class userProfilePage extends AppCompatActivity
         setContentView(R.layout.activity_user_profile);
         nameTV = (TextView)findViewById(R.id.facebookName);
         ageTV =(TextView)findViewById(R.id.facebookAge);
-        emailTV =(TextView)findViewById(R.id.facebookEmail);
+        cityTV =(TextView)findViewById(R.id.facebookEmail);
         profilePicture = (ProfilePictureView)findViewById(R.id.facebookImage);
         profilePicture.setProfileId(profile.getId()); //Picture facebook profile id.
         fb_details();
@@ -55,13 +56,26 @@ public class userProfilePage extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 String profileId = profile.getId();
+                String city = dataSnapshot.child("gps_city").child(profileId).getValue(String.class);
                 Log.v(profileId,"check1");
                 if(dataSnapshot.getValue() != null)
                 {
                     facebookData fd = dataSnapshot.child("faceData").child(profileId).getValue(facebookData.class);
-                    nameTV.setText(fd.getName());
-                    ageTV.setText(fd.getAge());
-                    emailTV.setText(fd.getEmail());
+                    if(!fd.getName().isEmpty())
+                    {
+                        nameTV.setText(fd.getName());
+                        nameTV.setTextColor(Color.BLACK);
+                    }
+                    if(!city.isEmpty())
+                    {
+                        cityTV.setText(city);
+                        cityTV.setTextColor(Color.BLACK);
+                    }
+                    if(!fd.getAge().isEmpty())
+                    {
+                        ageTV.setText(fd.getAge());
+                        ageTV.setTextColor(Color.BLACK);
+                    }
                 }
             }
             @Override

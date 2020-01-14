@@ -43,7 +43,7 @@ public class messagePage extends AppCompatActivity
     }
 
     /*
-     get from fire base conversation
+    Gets conversation from fire base.
     */
     public void conversation()
     {
@@ -83,7 +83,7 @@ public class messagePage extends AppCompatActivity
     }
 
     /*
-     send to fire base messagePage
+     send to fire base messagePage.
     */
     public void send(View view)
     {
