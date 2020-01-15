@@ -14,7 +14,7 @@
         android:layout_width="416dp"
         android:layout_height="734dp"
         tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="-2dp">
+        tools:layout_editor_absoluteY="-363dp">
 
     </com.github.mikephil.charting.charts.PieChart>
 
@@ -40,38 +40,41 @@
 
     <Button
         android:id="@+id/show"
-        android:layout_width="82dp"
-        android:layout_height="40dp"
+        android:layout_width="128dp"
+        android:layout_height="44dp"
         android:background="@drawable/button"
         android:fontFamily="casual"
         android:onClick="show"
         android:text="Show"
         android:textColor="#B5090808"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.959" />
+        app:layout_constraintVertical_bias="0.94" />
 
     <Button
         android:id="@+id/results"
-        android:layout_width="82dp"
-        android:layout_height="40dp"
+        android:layout_width="128dp"
+        android:layout_height="44dp"
         android:background="@drawable/button"
         android:fontFamily="casual"
         android:onClick="results"
         android:shadowColor="#FFFFFF"
         android:text="Compute"
         android:textColor="#B5090808"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.94" />
 
     <Button
         android:id="@+id/back"
@@ -84,7 +87,23 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="64dp"
+        android:layout_height="25dp"
+        android:background="@drawable/shape"
+        android:fontFamily="casual"
+        android:onClick="home"
+        android:text="Home"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
