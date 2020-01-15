@@ -38,9 +38,9 @@ public class statisticsPage extends AppCompatActivity
     static int countPeople = 0;
     int counter = 0; //Counts the questions;
     int show = 0;
-    Button computeButton;
-    Button showButton;
-    Button nextButton;
+    Button nextStat;
+    Button showStat;
+    Button computeStat;
 
     private float[] yData = {25.3f, 10.6f, 64.10f};
     private String[] xData = {"Maayan", "Nahama", "Or"};
@@ -51,9 +51,10 @@ public class statisticsPage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
         clear();
-        computeButton = (Button)findViewById(R.id.results);
-        showButton = (Button)findViewById(R.id.show);
-        nextButton = (Button)findViewById(R.id.next);
+        nextStat = (Button)findViewById(R.id.next);
+        showStat = (Button)findViewById(R.id.show);
+        computeStat = (Button)findViewById(R.id.results);
+//        showPieChart();
     }
 
     /*
@@ -72,9 +73,9 @@ public class statisticsPage extends AppCompatActivity
                 {
                     questionnaire quest = new questionnaire
                             (child.getKey(),
-                                    child.child("ans1").getValue(String.class),
-                                    child.child("ans2").getValue(String.class),
-                                    child.child("ans3").getValue(String.class));
+                             child.child("ans1").getValue(String.class),
+                             child.child("ans2").getValue(String.class),
+                             child.child("ans3").getValue(String.class));
                     questArr.add(quest);
                 }
                 for (int i = 0; i < questArr.size(); i++)
@@ -134,8 +135,9 @@ public class statisticsPage extends AppCompatActivity
             {
             }
         });
-        showButton.setVisibility(View.VISIBLE);
-        computeButton.setVisibility(View.GONE);
+        showStat.setVisibility(View.VISIBLE);
+        computeStat.setVisibility(View.GONE);
+
     }
 
     /*
@@ -187,8 +189,8 @@ public class statisticsPage extends AppCompatActivity
             }
         });
         show = 1;
-        nextButton.setVisibility(View.VISIBLE);
-        showButton.setVisibility(View.GONE);
+        nextStat.setVisibility(View.VISIBLE);
+        showStat.setVisibility(View.GONE);
     }
 
     public void back(View view)
@@ -237,7 +239,7 @@ public class statisticsPage extends AppCompatActivity
             showPieChart();
         }
         Drawable d = getResources().getDrawable(R.drawable.next2);
-        nextButton.setBackground(d);
+        nextStat.setBackground(d);
     }
 
     public void showPieChart()

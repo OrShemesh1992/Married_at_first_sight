@@ -45,7 +45,6 @@ public class matchPage extends AppCompatActivity
     TextView nameTV;
     TextView cityTV;
     TextView ageTV;
-    int back = 0;
 
     //For gps coordination:
     private LocationManager locationManager = null;
