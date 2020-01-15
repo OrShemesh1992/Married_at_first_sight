@@ -254,6 +254,7 @@ public class matchPage extends AppCompatActivity
             locationListener = new MyLocationListener();
             locationManager.requestLocationUpdates(LocationManager
                            .GPS_PROVIDER, 5000, 10,locationListener);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,5000, 10, locationListener);
         }
         else
         {
