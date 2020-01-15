@@ -141,7 +141,7 @@ public class notificationService extends Service
             channel.setDescription("Message");
             mNotificationManager.createNotificationChannel(channel);
         }
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "YOUR_CHANNEL_ID")
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "1")
                 .setSmallIcon(R.mipmap.ic_launcher) //Notification icon.
                 .setContentTitle(title) //Title for notification.
                 .setContentText(message)//Message for notification.
