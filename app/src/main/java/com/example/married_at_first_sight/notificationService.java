@@ -107,7 +107,7 @@ public class notificationService extends Service
                             @Override
                             public void onChildChanged(com.google.firebase.database.DataSnapshot dataSnapshot, String s)
                             {
-                                    showNotification("Message", profile.getFirstName() + " Someone sent you a message.");
+                                    showNotification("Message",  "Or sent you a message.");
                             }
 
                             @Override
